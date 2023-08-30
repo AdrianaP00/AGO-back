@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const chatSchema = new Schema(
   {
-    title: { type: String },
+    title: { type: String, required:true },
     closed: { type: Boolean, default: false },
     text: [
       {
