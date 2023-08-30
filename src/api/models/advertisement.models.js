@@ -11,7 +11,8 @@ const advertisementSchema = new Schema({
     localization: { type: String, required: true},
     skills: { type: String, required: true},
     users: [{ type: Schema.ObjectId, required: false , ref: "users" }],
-    jobs: [{ type: Schema.ObjectId, required: false , ref: "jobs" }]
+    jobs: [{ type: Schema.ObjectId, required: false , ref: "jobs" }],
+    img:{ type: String, requires: false}
 
 },{
     collection: "advertisement"
