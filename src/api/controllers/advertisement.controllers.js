@@ -34,7 +34,7 @@ const putAdvertisement = async (req, res) => {
     try {
         const { id } = req.params
         const putAdvertisement = new advertisement(req.body)
-        putCoachs._id = id;
+        putAdvertisement._id = id;
         const updateAdvertisement = await advertisement.findByIdAndUpdate(id, putAdvertisement, { new: true })
         if (!updateAdvertisement) {
             return res.status(404).json({ message: "Oh no! retry" })
