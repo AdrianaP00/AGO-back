@@ -13,6 +13,7 @@ const app = express();
 const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
+const chatRoutes = require("./src/api/routes/chat.routes")
 
 const options = {
   definition: {
@@ -45,13 +46,15 @@ app.use(cors({
     credentials: true
 }))
 
-app.use()
-app.use()
-app.use()
-app.use()
-app.use()
-app.use()
-
+app.use(express.json());
+app.use("/chat", chatRoutes);
+//app.use()
+//app.use()
+//app.use()
+//app.use()
+//app.use()
+//app.use()
+/*
 const specs = swaggerJsDoc(options);
 
 app.use(
@@ -59,7 +62,7 @@ app.use(
   swaggerUI.serve,
   swaggerUI.setup(specs, { customCssUrl: CSS_URL })
 )
-
+*/
 app.listen(PORT,() => console.log(`escuchando en el puerto http://localhost:${PORT}`))
 
 module.exports = app
