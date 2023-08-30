@@ -29,11 +29,11 @@ const putUser = async (req, res) => {
         const { id } = req.params
         const putUser = new users(req.body)
         putCoachs._id = id;
-        const updateUser = await user.findByIdAndUpdate(id, putUser, { new: true })
+        const updateUser = await users.findByIdAndUpdate(id, putUser, { new: true })
         if (!updateUser) {
             return res.status(404).json({ message: "Oh no! we don't have this user" })
         }
-        return res.status(200).json(updateClass)
+        return res.status(200).json(updateUser)
     } catch (error) {
         return res.status(500).json(error)
     }
@@ -92,7 +92,7 @@ const deleteUser = async (req, res) => {
         if (!deleteUser) {
             return res.status(404).json({ message: "Ops retry" })
         }
-        return res.status(200).json(deleteCoach)
+        return res.status(200).json(deleteUser)
     } catch (error) {
         return res.status(500).json(error)
     }
