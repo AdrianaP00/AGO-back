@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "seedusers": "node ./src/seeds/user.seeds.js",
     "jwt": "node ./src/utils/jwt.js"
   },
   "keywords": [],

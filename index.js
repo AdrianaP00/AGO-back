@@ -15,6 +15,7 @@ const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 const chatRoutes = require("./src/api/routes/chat.routes")
 
+
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -30,7 +31,7 @@ const options = {
     ],
   },
   // This is to call all the file
-  apis: [""],
+  apis: ["./AGO-BACK/src/**/*.js"]
 };
 
 app.use(express.json())
@@ -46,15 +47,17 @@ app.use(cors({
     credentials: true
 }))
 
+
 app.use(express.json());
 app.use("/chat", chatRoutes);
+app.use("/user", usersRouter);
 //app.use()
 //app.use()
 //app.use()
 //app.use()
 //app.use()
 //app.use()
-/*
+
 const specs = swaggerJsDoc(options);
 
 app.use(
@@ -62,7 +65,7 @@ app.use(
   swaggerUI.serve,
   swaggerUI.setup(specs, { customCssUrl: CSS_URL })
 )
-*/
+
 app.listen(PORT,() => console.log(`escuchando en el puerto http://localhost:${PORT}`))
 
 module.exports = app
