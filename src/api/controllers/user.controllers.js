@@ -28,7 +28,7 @@ const putUser = async (req, res) => {
     try {
         const { id } = req.params
         const putUser = new users(req.body)
-        putCoachs._id = id;
+        putUser._id = id;
         const updateUser = await users.findByIdAndUpdate(id, putUser, { new: true })
         if (!updateUser) {
             return res.status(404).json({ message: "Oh no! we don't have this user" })
