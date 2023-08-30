@@ -13,7 +13,8 @@ const app = express();
 const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
-const usersRouter = require("./src/api/routes/user.routes")
+const chatRoutes = require("./src/api/routes/chat.routes")
+
 
 const options = {
   definition: {
@@ -46,7 +47,16 @@ app.use(cors({
     credentials: true
 }))
 
-app.use("/user", usersRouter)
+
+app.use(express.json());
+app.use("/chat", chatRoutes);
+app.use("/user", usersRouter);
+//app.use()
+//app.use()
+//app.use()
+//app.use()
+//app.use()
+//app.use()
 
 const specs = swaggerJsDoc(options);
 
