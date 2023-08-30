@@ -14,8 +14,8 @@ const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 const chatRoutes = require("./src/api/routes/chat.routes")
-const usersRouter = require("./src/api/routes/user.routes")
-
+const usersRoutes = require("./src/api/routes/user.routes")
+const advRoutes = require("./src/api/routes/advertisement.routes")
 
 const options = {
   definition: {
@@ -51,7 +51,8 @@ app.use(cors({
 
 app.use(express.json());
 app.use("/chat", chatRoutes);
-app.use("/user", usersRouter);
+app.use("/user", usersRoutes);
+app.use("/advertisement", advRoutes);
 
 
 const specs = swaggerJsDoc(options);
