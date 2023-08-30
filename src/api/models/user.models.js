@@ -14,6 +14,7 @@ const usersSchema = new Schema({
     comments: [{ type: Schema.ObjectId, required: false , ref: "comments" }],
     jobs: [{ type: Schema.ObjectId, required: false , ref: "jobs" }],
     role:{type:String, default:"user", enum:["Admin","user","Company"]},
+    img:{ type: String, requires: false}
 },{
     collection: "users"
 }
