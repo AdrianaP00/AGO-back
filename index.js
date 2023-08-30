@@ -13,6 +13,7 @@ const app = express();
 const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
+const usersRouter = require("./src/api/routes/user.routes")
 
 const options = {
   definition: {
@@ -29,7 +30,7 @@ const options = {
     ],
   },
   // This is to call all the file
-  apis: [""],
+  apis: ["./AGO-BACK/src/**/*.js"]
 };
 
 app.use(express.json())
@@ -45,12 +46,7 @@ app.use(cors({
     credentials: true
 }))
 
-app.use()
-app.use()
-app.use()
-app.use()
-app.use()
-app.use()
+app.use("/user", usersRouter)
 
 const specs = swaggerJsDoc(options);
 
