@@ -7,7 +7,7 @@ const chatSchema = new Schema(
     closed: { type: Boolean, default: false },
     text: [
       {
-        id_user: { type: String, required: true, ref: "user", require: false  },
+        id_user: { type: Schema.ObjectId, required: true, ref: "user", require: false  },
         text: { type: String },
       },
       {

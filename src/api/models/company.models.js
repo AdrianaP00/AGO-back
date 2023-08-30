@@ -10,7 +10,7 @@ const companySchema = new Schema(
     country: { type: String },
     logo: { type: String },
     numberEmployes: { type: Number },
-    id_user: { type: String, required: true },
+    id_user: { type: Schema.ObjectId, required: true },
   },
   {
     timestamps: true,
