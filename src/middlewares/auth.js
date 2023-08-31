@@ -25,6 +25,29 @@ const isAuth = async( req,res,next) =>{
 }
 
 
+const isUser = async( req,res,next) =>{
+    try {
+        const authorization = req.headers.authorization
+        if (!authorization) {
+            return res.status(401).json({message:"you are not authorized"})
+        }
+        const token = authorization.split(" ")[1]
+        if (!token) {
+            return res.status(401).json({message:"invalid token"})
+        }
+        const tokenVerified = verifySign(token);
+        if (!tokenVerified.id) {
+            return res.status(401).json(tokenVerified)
+        }
+        const userLogged = await user.findById(tokenVerified.id);
+        req.user = userLogged;
+        next()
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+}
+
+
 const isCompany = async( req,res,next) =>{
     try {
         const authorization = req.headers.authorization
@@ -65,7 +88,7 @@ const isAdmin = async( req,res,next) =>{
         if (!tokenVerified.id) {
             return res.status(401).json(tokenVerified)
         }
-        const userLogged = await User.findById(tokenVerified.id);
+        const userLogged = await user.findById(tokenVerified.id);
         req.user = userLogged;
         if (userLogged.role !== "Admin") {
             return res.status(401).json({message:"You have to be admin"})
@@ -78,4 +101,4 @@ const isAdmin = async( req,res,next) =>{
 }
 
 
-module.exports = {isCompany,isAuth,isAdmin}
+module.exports = {isCompany,isAuth,isAdmin,isUser}

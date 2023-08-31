@@ -38,7 +38,7 @@ const putChat = async (req, res) => {
       new: true,
     });
     if (!updatedChat) {
-      return res.status(404).json({ message: "no existe este id de actor" });
+      return res.status(404).json({ message: "ops! we don't have this id" });
     }
     return res.status(200).json(updatedChat);
   } catch (error) {
@@ -51,7 +51,7 @@ const deleteChat = async (req, res) => {
     const { id } = req.params;
     const deletedChat = await Chat.findByIdAndDelete(id);
     if (!deletedChat) {
-      return res.status(404).json({ message: "este id no existe" });
+      return res.status(404).json({ message: "ops! we don't have this id" });
     }
     return res.status(200).json(deletedChat);
   } catch (error) {

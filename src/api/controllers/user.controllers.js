@@ -45,13 +45,13 @@ const register = async (req, res ) => {
         const newUser = new users(req.body)
         
         if (!validateEmail(newUser.email)) {
-            return res.status(400).json({message:" email invalido"})
+            return res.status(400).json({message:" invalid email address"})
         }
         if (!validatePassword(newUser.password)) {
-            return res.status(400).json({message:" password invalido"})
+            return res.status(400).json({message:"invalid password"})
         }
         if (await usedEmail(newUser.email)) {
-            return res.status(400).json({message:" email introducido ya existe"})
+            return res.status(400).json({message:"the email already exists"})
         }
 
         newUser.password = bcrypt.hashSync(newUser.password,10);
@@ -90,7 +90,7 @@ const deleteUser = async (req, res) => {
         const { id } = req.params
         const deleteUser = await users.findByIdAndDelete(id)
         if (!deleteUser) {
-            return res.status(404).json({ message: "Ops retry" })
+            return res.status(404).json({ message: "Ops! retry" })
         }
         return res.status(200).json(deleteUser)
     } catch (error) {

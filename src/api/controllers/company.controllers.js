@@ -38,7 +38,7 @@ const putCompany = async (req, res) => {
       new: true,
     });
     if (!updatedCompany) {
-      return res.status(404).json({ message: "no existe este id de actor" });
+      return res.status(404).json({ message: "ops! we don't have this id" });
     }
     return res.status(200).json(updatedCompany);
   } catch (error) {
@@ -51,7 +51,7 @@ const deleteCompany = async (req, res) => {
     const { id } = req.params;
     const deletedCompany = await Company.findByIdAndDelete(id);
     if (!deletedCompany) {
-      return res.status(404).json({ message: "este id no existe" });
+      return res.status(404).json({ message: "ops! we don't have this id" });
     }
     return res.status(200).json(deletedCompany);
   } catch (error) {

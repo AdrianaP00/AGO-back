@@ -51,7 +51,7 @@ const deleteComment = async (req, res) => {
         const { id } = req.params
         const deleteComments = await Comments.findByIdAndDelete(id)
         if (!deleteComments) {
-            return res.status(404).json({ message: "Ops retry" })
+            return res.status(404).json({ message: "Ops! retry" })
         }
         return res.status(200).json(deleteComments)
     } catch (error) {
