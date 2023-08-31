@@ -5,10 +5,10 @@ const { getCompanys, getCompany, postCompany, putCompany, deleteCompany } = requ
 
 const companyRoutes = express.Router();
 
-companyRoutes.get("/", getCompanys);
-companyRoutes.get("/:id", getCompany)
-companyRoutes.post("/", postCompany);
-companyRoutes.put("/:id", putCompany);
-companyRoutes.delete("/:id", deleteCompany);
+companyRoutes.get("/",[isAuth],[isAdmin],[isUser],[isCompany],getCompanys);
+companyRoutes.get("/:id",[isAuth],[isAdmin],[isUser],[isCompany],getCompany)
+companyRoutes.post("/", [isCompany],[isAdmin],postCompany);
+companyRoutes.put("/:id",[isCompany],[isAdmin], putCompany);
+companyRoutes.delete("/:id",[isCompany],[isAdmin], deleteCompany);
 
 module.exports= companyRoutes;
