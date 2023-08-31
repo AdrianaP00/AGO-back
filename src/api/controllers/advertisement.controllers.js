@@ -1,34 +1,37 @@
-const advertisement = require("../models/advertisement.models")
+const advertisement = require("../models/advertisement.models");
 
 const getAdvertisement = async (req, res) => {
     try {
-      const allAdvertisement = await advertisement.find();
-      return res.status(200).json(allAdvertisement);
+        const allAdvertisement = await advertisement.find();
+        return res.status(200).json(allAdvertisement);
     } catch (error) {
-      return res.status(500).json(error);
+        return res.status(500).json(error);
     }
 };
 
-const getOneAdvertisement= async (req, res) => {
+const getOneAdvertisement = async (req, res) => {
     try {
         const { id } = req.params
         const oneAdvertisement = await advertisement.findById(id)
         return res.status(200).json(oneAdvertisement)
 
     } catch (error) {
-        return res.status(500).json(error)
+        return res.status(500).json(error);
     }
-}
+};
 
 const postAdvertisement = async (req, res) => {
     try {
-        const newAdvertisement = new advertisement(req.body)
-        const createAdvertisement = await newAdvertisement.save()
-        return res.status(201).json(createAdvertisement)
+        const newAdvertisement = new advertisement({
+            ...req.body,
+            userId: req.user._id,
+        });
+        const createAdvertisement = await newAdvertisement.save();
+        return res.status(201).json(createAdvertisement);
     } catch (error) {
-        return res.status(500).json(error)
+        return res.status(500).json(error);
     }
-}
+};
 
 const putAdvertisement = async (req, res) => {
     try {
@@ -37,27 +40,31 @@ const putAdvertisement = async (req, res) => {
         putAdvertisement._id = id;
         const updateAdvertisement = await advertisement.findByIdAndUpdate(id, putAdvertisement, { new: true })
         if (!updateAdvertisement) {
-            return res.status(404).json({ message: "Oh no! retry" })
+            return res.status(404).json({ message: "Advertisement not found" });
         }
-        return res.status(200).json(updateAdvertisement)
+        return res.status(200).json(updateAdvertisement);
     } catch (error) {
-        return res.status(500).json(error)
+        return res.status(500).json(error);
     }
-}
-
+};
 
 const deleteAdvertisement = async (req, res) => {
     try {
         const { id } = req.params
         const deleteAdvertisement = await advertisement.findByIdAndDelete(id)
         if (!deleteAdvertisement) {
-            return res.status(404).json({ message: "Ops retry" })
+            return res.status(404).json({ message: "Advertisement not found" });
         }
-        return res.status(200).json(deleteAdvertisement)
+        return res.status(200).json(deleteAdvertisement);
     } catch (error) {
-        return res.status(500).json(error)
+        return res.status(500).json(error);
     }
-}
+};
 
-
-module.exports={getAdvertisement,getOneAdvertisement,postAdvertisement,putAdvertisement,deleteAdvertisement}
+module.exports = {
+    getAdvertisement,
+    getOneAdvertisement,
+    postAdvertisement,
+    putAdvertisement,
+    deleteAdvertisement,
+};

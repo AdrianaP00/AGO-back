@@ -1,4 +1,5 @@
 const express = require("express");
+const { isUser, isAuth, isAdmin, isCompany } = require("../../middlewares/auth")
 const {getComments,getOneComment,putComment,postComment,deleteComment}= require("../controllers/comments.controllers");
 
 

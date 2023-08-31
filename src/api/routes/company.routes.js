@@ -1,4 +1,5 @@
 const express = require("express");
+const { isUser, isAuth, isAdmin, isCompany } = require("../../middlewares/auth")
 const { getCompanys, getCompany, postCompany, putCompany, deleteCompany } = require("../controllers/company.controllers");
 
 

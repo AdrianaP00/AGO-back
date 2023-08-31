@@ -30,7 +30,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://gym-back-node.vercel.app/",
+        url: "http://localhost:5003",
         description: "My API Documentation",
       },
     ],

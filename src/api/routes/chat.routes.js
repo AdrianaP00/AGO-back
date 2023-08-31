@@ -1,4 +1,5 @@
 const express = require("express");
+const { isUser, isAuth, isAdmin, isCompany } = require("../../middlewares/auth")
 const { getChats, getChat, postChat, putChat, deleteChat } = require("../controllers/chat.controllers");
 
 

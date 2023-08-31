@@ -1,4 +1,5 @@
 const express = require("express");
+const { isUser, isAuth, isAdmin, isCompany } = require("../../middlewares/auth")
 const {getJobs, getOneJobs,postJobs,putJobs,deleteJobs } = require("../controllers/jobs.controllers");
 
 
