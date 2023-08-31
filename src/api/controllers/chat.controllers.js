@@ -20,14 +20,13 @@ const getChat = async (req, res) => {
 };
 
 const postChat = async (req, res) => {
-  try {
-    const chat = new Chat(req.body);
-    const createdChat = await chat.save();
-    return res.status(201).json(createdChat);
-  } catch (error) {
-    return res.status(500).json(error);
-  }
-};
+  const newChat = new Chat({
+    ...req.body,
+    userId: req.user._id,
+});
+const createChat = await newChat.save();
+return res.status(201).json(createChat);
+}
 
 const putChat = async (req, res) => {
   try {

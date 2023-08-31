@@ -1,7 +1,6 @@
 const express = require("express")
-const dotenv = require("dotenv").config()
 const cors = require("cors")
-const path=require("path")
+
 
 
 const {connect} = require("./src/utils/db")
@@ -30,7 +29,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://gym-back-node.vercel.app/",
+        url: "http://localhost:5003",
         description: "My API Documentation",
       },
     ],

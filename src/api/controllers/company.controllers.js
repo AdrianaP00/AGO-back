@@ -21,13 +21,18 @@ const getCompany = async (req, res) => {
 
 const postCompany = async (req, res) => {
   try {
-    const company = new Company(req.body);
-    const createdCompany = await company.save();
-    return res.status(201).json(createdCompany);
-  } catch (error) {
-    return res.status(500).json(error);
-  }
-};
+    const { id } = req.params
+    const putCompany = new Company(req.body)
+    putCompany._id = id;
+    const updateCompany= await Company.findByIdAndUpdate(id, putCompany, { new: true })
+    if (!updateCompany) {
+        return res.status(404).json({ message: "Oh no! retry" })
+    }
+    return res.status(200).json(updateCompany)
+} catch (error) {
+    return res.status(500).json(error)
+}
+}
 
 const putCompany = async (req, res) => {
   try {

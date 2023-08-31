@@ -22,13 +22,18 @@ const getOneComment= async (req, res) => {
 
 const postComment = async (req, res) => {
     try {
-        const newComment = new Comments(req.body)
-        const createComments = await newComment.save()
-        return res.status(201).json(createComments)
+         const newComment = new Comment({
+            ...req.body,
+            userId: req.user._id,
+        });
+        const createComment = await newComment.save();
+        return res.status(201).json(createComment);
+    
     } catch (error) {
-        return res.status(500).json(error)
+       return res.status(500).json(error)
     }
 }
+
 
 const putComment= async (req, res) => {
     try {
