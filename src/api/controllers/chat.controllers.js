@@ -12,7 +12,7 @@ const getChats = async (req, res) => {
 const getChat = async (req, res) => {
   try {
     const { id } = req.params;
-    const chat = await Chat.findBy(id);
+    const chat = await Chat.findById(id);
     return res.status(200).json(chat);
   } catch (error) {
     return res.status(500).json(error);
@@ -34,7 +34,7 @@ const putChat = async (req, res) => {
     const { id } = req.params;
     const chat = new Chat(req.body);
     chat._id = id;
-    const updatedChat = await Actor.findByIdAndUpdate(id, chat, {
+    const updatedChat = await Chat.findByIdAndUpdate(id, chat, {
       new: true,
     });
     if (!updatedChat) {

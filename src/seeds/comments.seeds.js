@@ -6,73 +6,73 @@ const seedComments = [
     // Comentarios de Usuarios
     {
       text: "¡Excelente trabajo! Realmente impresionado con los resultados.",
-      user: "usuario1",
+      user: "64f049bc35414fa61febf527",
       company: [],
-      jobs: ["trabajo1"],
+      jobs: [],
       img: "url_de_la_imagen1"
     },
     {
       text: "Fue un placer trabajar en este proyecto. Los resultados hablan por sí mismos.",
-      user: "usuario2",
+      user: "64f049bc35414fa61febf527",
       company: [],
-      jobs: ["trabajo2"],
+      jobs: [],
       img: "url_de_la_imagen2"
     },
     {
       text: "El equipo hizo un trabajo increíble en esto. Muy contento con el producto final.",
-      user: "usuario3",
+      user: "64f049bc35414fa61febf527",
       company: [],
-      jobs: ["trabajo3"],
+      jobs: [],
       img: "url_de_la_imagen3"
     },
     {
       text: "No puedo creer lo rápido que completaron el proyecto. Altamente recomendados.",
-      user: "usuario4",
+      user: "64f049bc35414fa61febf527",
       company: [],
-      jobs: ["trabajo4"],
+      jobs: [],
       img: "url_de_la_imagen4"
     },
     {
       text: "¡Bravo! Estoy muy satisfecho con cómo se manejaron las cosas.",
-      user: "usuario5",
+      user: "64f049bc35414fa61febf527",
       company: [],
-      jobs: ["trabajo5"],
+      jobs: [],
       img: "url_de_la_imagen5"
     },
   
     // Comentarios de Empresas
     {
       text: "Nuestro equipo se enorgullece de haber entregado este proyecto a tiempo.",
-      user: "",
-      company: "empresa1",
+      user: "64f049bc35414fa61febf522",
+      company: [],
       jobs: [],
       img: "url_de_la_imagen6"
     },
     {
       text: "La colaboración con nuestro cliente en este proyecto fue excepcional.",
-      user: "",
-      company: "empresa2",
+      user: "64f049bc35414fa61febf523",
+      company: [],
       jobs: [],
       img: "url_de_la_imagen7"
     },
     {
       text: "Este proyecto fue un verdadero hito para nosotros. ¡Gran trabajo en equipo!",
-      user: "",
-      company: "empresa3",
+      user: "64f049bc35414fa61febf524",
+      company: [],
       jobs: [],
       img: "url_de_la_imagen8"
     },
     {
       text: "El esfuerzo conjunto de nuestros empleados hizo posible este logro.",
-      user: "",
-      company: "empresa4",
+      user: "64f049bc35414fa61febf525",
+      company: [],
       jobs: [],
       img: "url_de_la_imagen9"
     },
     {
       text: "Nuestra experiencia en este proyecto refleja nuestra dedicación a la calidad.",
-      user: "",
-      company: "empresa5",
+      user: "64f049bc35414fa61febf525",
+      company: [],
       jobs: [],
       img: "url_de_la_imagen10"
     }

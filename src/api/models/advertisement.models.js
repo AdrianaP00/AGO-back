@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const advertisementSchema = new Schema({
     title: { type: String, requires: true},
     company: { type: String, requires: true},
-    description: { type: Number, requires: true},
+    description: { type: String, requires: true},
     salary: { type: String, required: true },
     extra: { type: String, required: false },
     localization: { type: String, required: true},
