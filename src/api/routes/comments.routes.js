@@ -5,10 +5,10 @@ const {getComments,getOneComment,putComment,postComment,deleteComment}= require(
 
 const commentRouter = express.Router();
 
-commentRouter.get("/",[isAuth],[isAdmin],[isUser],[isCompany], getComments);
-commentRouter.get("/:id",[isAuth],[isAdmin],[isUser],[isCompany], getOneComment)
-commentRouter.post("/",[isAuth],[isAdmin],[isUser],[isCompany], postComment);
-commentRouter.put("/:id",[isAuth],[isAdmin],[isUser],[isCompany], putComment);
+commentRouter.get("/",[isAuth], getComments);
+commentRouter.get("/:id",[isAuth], getOneComment)
+commentRouter.post("/",[isAuth], postComment);
+commentRouter.put("/:id",[isAuth],[isUser],[isCompany], putComment);
 commentRouter.delete("/:id",[isAdmin], deleteComment);
 
 module.exports= commentRouter;

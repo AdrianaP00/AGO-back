@@ -5,10 +5,10 @@ const {getAdvertisement,getOneAdvertisement,postAdvertisement,putAdvertisement,d
 
 const advRoutes = express.Router();
 
-advRoutes.get("/",[isAuth],[isAdmin],[isUser],[isCompany],getAdvertisement);
-advRoutes.get("/:id",[isAuth],[isAdmin],[isUser],[isCompany], getOneAdvertisement)
-advRoutes.post("/",[isAuth],[isAdmin],[isCompany], postAdvertisement);
-advRoutes.put("/:id",[isAuth],[isAdmin],[isCompany], putAdvertisement);
-advRoutes.delete("/:id",[isAuth],[isAdmin],[isCompany],deleteAdvertisement);
+advRoutes.get("/",[isAuth],getAdvertisement);
+advRoutes.get("/:id",[isAuth], getOneAdvertisement)
+advRoutes.post("/",[isAuth], postAdvertisement);
+advRoutes.put("/:id",[isAuth], putAdvertisement);
+advRoutes.delete("/:id",[isAuth],deleteAdvertisement);
 
 module.exports= advRoutes;
