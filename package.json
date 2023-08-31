@@ -8,6 +8,10 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "seedusers": "node ./src/seeds/user.seeds.js",
+    "seedjobs": "node ./src/seeds/jobs.seeds.js",
+    "seedcomments": "node ./src/seeds/comments.seeds.js",
+    "seedadv": "node ./src/seeds/advertisement.seeds.js",
+    "seedcompany": "node ./src/seeds/company.seeds.js",
     "jwt": "node ./src/utils/jwt.js"
   },
   "keywords": [],

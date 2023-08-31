@@ -1,8 +1,8 @@
-const jobs = require("../models/jobs.models");
+const Jobs = require("../models/jobs.models");
 
 const getJobs= async (req, res) => {
     try {
-      const allJobs = await jobs.find();
+      const allJobs = await Jobs.find();
       return res.status(200).json(allJobs);
     } catch (error) {
       return res.status(500).json(error);
@@ -12,7 +12,7 @@ const getJobs= async (req, res) => {
 const getOneJobs = async (req, res) => {
     try {
         const { id } = req.params
-        const oneJob = await jobs.findById(id)
+        const oneJob = await Jobs.findById(id)
         return res.status(200).json(oneJob)
 
     } catch (error) {
@@ -22,7 +22,7 @@ const getOneJobs = async (req, res) => {
 
 const postJobs = async (req, res) => {
     try {
-      const jobs = new jobs(req.body);
+      const jobs = new Jobs(req.body);
       const createdjob= await jobs.save();
       return res.status(201).json(createdjob);
     } catch (error) {
@@ -33,9 +33,9 @@ const postJobs = async (req, res) => {
 const putJobs= async (req, res) => {
     try {
         const { id } = req.params
-        const putJobs = new users(req.body)
+        const putJobs = new Jobs(req.body)
         putJobs._id = id;
-        const updateJobs= await users.findByIdAndUpdate(id, putJobs, { new: true })
+        const updateJobs= await Jobs.findByIdAndUpdate(id, putJobs, { new: true })
         if (!updateJobs) {
             return res.status(404).json({ message: "Oh no! we don't have this user" })
         }
@@ -48,7 +48,7 @@ const putJobs= async (req, res) => {
 const deleteJobs= async (req, res) => {
     try {
         const { id } = req.params
-        const deletejob= await jobs.findByIdAndDelete(id)
+        const deletejob= await Jobs.findByIdAndDelete(id)
         if (!deletejob) {
             return res.status(404).json({ message: "Ops! retry" })
         }

@@ -12,7 +12,7 @@ const getCompanys = async (req, res) => {
 const getCompany = async (req, res) => {
   try {
     const { id } = req.params;
-    const company = await Company.findBy(id);
+    const company = await Company.findById(id);
     return res.status(200).json(company);
   } catch (error) {
     return res.status(500).json(error);
@@ -34,7 +34,7 @@ const putCompany = async (req, res) => {
     const { id } = req.params;
     const company = new Company(req.body);
     company._id = id;
-    const updatedCompany = await Actor.findByIdAndUpdate(id, company, {
+    const updatedCompany = await Company.findByIdAndUpdate(id, company, {
       new: true,
     });
     if (!updatedCompany) {

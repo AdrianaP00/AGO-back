@@ -6,8 +6,8 @@ const commentRouter = express.Router();
 
 commentRouter.get("/", getComments);
 commentRouter.get("/:id", getOneComment)
-commentRouter.post("/", putComment);
-commentRouter.put("/:id", postComment);
+commentRouter.post("/", postComment);
+commentRouter.put("/:id", putComment);
 commentRouter.delete("/:id", deleteComment);
 
 module.exports= commentRouter;

@@ -6,7 +6,7 @@ const storage = new CloudinaryStorage({
     
     cloudinary:cloudinary,
     params:{
-        folder:'image',
+        folder:'ago',
         allowedFormats:['jpg', 'png', 'svg', 'jpeg', 'gif'],
     }
 })
