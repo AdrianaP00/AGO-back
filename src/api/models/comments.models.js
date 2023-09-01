@@ -3,8 +3,8 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const commentSchema = new Schema({
-    text: { type: String, requires: true, ref: "users"},
-    user: { type: Schema.ObjectId, requires: true},
+    text: { type: String, requires: true, ref: "user"},
+    user: { type: Schema.ObjectId, requires: true, ref: "user"},
     company: [{type: Schema.ObjectId, requires: true, ref: "company"}],
     score: {type: Number, requires: true},
     jobs: [{ type: Schema.ObjectId, required: false , ref: "jobs" }],

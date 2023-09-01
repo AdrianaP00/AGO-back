@@ -12,7 +12,7 @@ const getComments = async (req, res) => {
 const getOneComment= async (req, res) => {
     try {
         const { id } = req.params
-        const oneComments = await Comments.findById(id)
+        const oneComments = await Comments.findById(id).populate("users")
         return res.status(200).json(oneComments)
 
     } catch (error) {
