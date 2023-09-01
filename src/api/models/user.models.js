@@ -7,7 +7,7 @@ const userSchema = new Schema({
     age: { type: Number, requires: false},
     email: { type: String, required: true, trim: true, unique: true},
     password: { type: String, required: true, trim: true },
-    phoneNumbe: { type: Number, required: false},
+    phoneNumber: { type: Number, required: false},
     address: { type: String, required: false},
     spacialization: { type: String, required: false},
     yearsOfExperience: { type: Number, required: false},
