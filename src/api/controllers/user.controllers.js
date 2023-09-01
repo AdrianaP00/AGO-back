@@ -2,7 +2,7 @@ const users = require("../models/user.models")
 const bcrypt = require("bcrypt");
 
 const {generateSign} = require("../../utils/jwt")
-const {validateEmail,validatePassword,usedEmail} = require("../../utils/validators")
+const {validateEmail,validatePassword,usedEmail,validateName} = require("../../utils/validators")
   const { sendRegistrationEmail } = require("../../utils/mailer.config");
 
 const getUsers = async (req, res) => {
@@ -44,7 +44,10 @@ const register = async (req, res ) => {
     try {
         console.log(req.body);
         const newUser = new users(req.body)
-        
+
+        if (!validateName(newUser.name)) {
+            return res.status(400).json({message:"invalid name"})
+        }
         if (!validateEmail(newUser.email)) {
             return res.status(400).json({message:" invalid email address"})
         }

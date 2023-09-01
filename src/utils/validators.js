@@ -20,4 +20,10 @@ const usedEmail = async (email) => {
   return users.length;
 };
 
-module.exports = { validateEmail, validatePassword, usedEmail };
+const validateName = (name) => {
+  const regex = /[a-zA-Z]{3,30}$/;
+  return regex.test(String(name));
+    
+};
+
+module.exports = { validateEmail, validatePassword, usedEmail, validateName };
