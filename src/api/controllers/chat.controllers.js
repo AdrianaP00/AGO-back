@@ -2,7 +2,7 @@ const Chat = require("../models/chat.models");
 
 const getChats = async (req, res) => {
   try {
-    const chats = await Chat.find();
+    const chats = await Chat.find().populate("user");
     return res.status(200).json(chats);
   } catch (error) {
     return res.status(500).json(error);

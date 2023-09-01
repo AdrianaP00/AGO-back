@@ -5,18 +5,13 @@ const chatSchema = new Schema(
   {
     title: { type: String, required:true },
     closed: { type: Boolean, default: false },
-    text: [
+    user: [{ type: Schema.ObjectId, required: true, ref: "user" }],
+    conversation: [
       {
-        id_user: { type: Schema.ObjectId, required: true, ref: "user", require: false  },
-        text: { type: String },
-      },
-      {
-        timestamps: true,
-      },
-    ],
-  },
-  {
-    timestamps: true,
+        text: { type: String, required: true, },
+        timestamps: {type: Date}
+      }
+    ]
   }
 );
 
