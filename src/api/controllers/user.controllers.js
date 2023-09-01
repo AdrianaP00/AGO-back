@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 
 const {generateSign} = require("../../utils/jwt")
 const {validateEmail,validatePassword,usedEmail} = require("../../utils/validators")
+  const { sendRegistrationEmail } = require("../../utils/mailer.config");
 
 const getUsers = async (req, res) => {
     try {
@@ -53,13 +54,11 @@ const register = async (req, res ) => {
         if (await usedEmail(newUser.email)) {
             return res.status(400).json({message:"the email already exists"})
         }
-
         newUser.password = bcrypt.hashSync(newUser.password,10);
         const createdUser = await newUser.save();
+        sendRegistrationEmail(newUser);
 
         return res.status(201).json(createdUser);
-
-
     } catch (error) {
         return res.status(500).json(error)
     }

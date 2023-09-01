@@ -46,10 +46,13 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use(cors({
-    origin: "*",
-    credentials: true
-}))
+app.use(
+  cors({
+    // origin: "*",
+    origin: "http://localhost:3001",
+    credentials: true,
+  })
+);
 
 
 app.use(express.json());
