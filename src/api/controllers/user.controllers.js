@@ -30,6 +30,8 @@ const putUser = async (req, res) => {
         const { id } = req.params
         const putUser = new users(req.body)
         putUser._id = id;
+        console.log("paasssseowdad",putUser.password)
+        putUser.password = bcrypt.hashSync(putUser.password, 10);
         const updateUser = await users.findByIdAndUpdate(id, putUser, { new: true })
         if (!updateUser) {
             return res.status(404).json({ message: "Oh no! we don't have this user" })
