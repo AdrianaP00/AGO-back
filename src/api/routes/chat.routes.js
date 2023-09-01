@@ -5,10 +5,10 @@ const { getChats, getChat, postChat, putChat, deleteChat } = require("../control
 
 const chatRouter = express.Router();
 
-chatRouter.get("/",[isAuth],[isAdmin],[isUser],[isCompany], getChats);
-chatRouter.get("/:id",[isAuth],[isAdmin],[isUser],[isCompany], getChat)
-chatRouter.post("/",[isAuth],[isAdmin],[isUser],[isCompany], postChat);
-chatRouter.put("/:id",[isAuth],[isAdmin],[isUser],[isCompany], putChat);
-chatRouter.delete("/:id",[isAuth],[isAdmin],[isUser],[isCompany],deleteChat);
+chatRouter.get("/",[isAuth], getChats);
+chatRouter.get("/:id",[isAuth], getChat)
+chatRouter.post("/",[isAuth], postChat);
+chatRouter.put("/:id",[isAuth], putChat);
+chatRouter.delete("/:id",[isAuth],deleteChat);
 
 module.exports= chatRouter;

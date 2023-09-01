@@ -35,7 +35,7 @@ const isUser = async( req,res,next) =>{
     try {
         checkAuth(req, res);
         const userLogged = req.user;
-        if (userLogged.role !== "user") {
+        if (userLogged.role !== "user" || userLogged.role !== "Admin") {
             return res.status(401).json({message:"You have to be user"})
         }
         next()
@@ -49,7 +49,7 @@ const isCompany = async( req,res,next) =>{
     try {
         checkAuth(req, res);
         const userLogged = req.user;
-        if (userLogged.role !== "Company") {
+        if (userLogged.role !== "Company" || userLogged.role !== "Admin") {
             return res.status(401).json({message:"You have to be a Company"})
         }
         next()
