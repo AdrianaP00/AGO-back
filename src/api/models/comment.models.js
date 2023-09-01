@@ -4,15 +4,15 @@ const Schema = mongoose.Schema
 
 const commentSchema = new Schema({
     text: { type: String, requires: true},
-    user: { type: Schema.ObjectId, requires: true, ref: "users"},
+    user: { type: Schema.ObjectId, requires: true, ref: "user"},
     company: [{type: Schema.ObjectId, requires: true, ref: "company"}],
     score: {type: Number, requires: true},
-    jobs: [{ type: Schema.ObjectId, required: false , ref: "jobs" }],
+    jobs: [{ type: Schema.ObjectId, required: false , ref: "job" }],
     img:{ type: String, requires: false}
 },{
-    collection: "comments"
+    collection: "comment"
 }
 )
 
-const comments = mongoose.model("comments", commentSchema)
-module.exports = comments
+const comment = mongoose.model("comment", commentSchema)
+module.exports = comment

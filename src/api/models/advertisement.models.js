@@ -10,8 +10,8 @@ const advertisementSchema = new Schema({
     extra: { type: String, required: false },
     localization: { type: String, required: true},
     skills: { type: String, required: true},
-    users: [{ type: Schema.ObjectId, required: false , ref: "users" }],
-    jobs: [{ type: Schema.ObjectId, required: false , ref: "jobs" }],
+    users: [{ type: Schema.ObjectId, required: false , ref: "user" }],
+    jobs: [{ type: Schema.ObjectId, required: false , ref: "job" }],
     img:{ type: String, requires: false}
 
 },{

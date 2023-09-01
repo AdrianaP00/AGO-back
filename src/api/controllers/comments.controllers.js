@@ -1,4 +1,4 @@
-const Comments = require("../models/comments.models")
+const Comments = require("../models/comment.models")
 
 const getComments = async (req, res) => {
     try {
@@ -26,7 +26,7 @@ const postComment = async (req, res) => {
             ...req.body,
             userId: req.user._id,
         });
-        const createComment = await newComment.save();
+        const createComment = await newComment.save().populate("user");
         return res.status(201).json(createComment);
     
     } catch (error) {
