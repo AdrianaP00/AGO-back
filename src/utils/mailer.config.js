@@ -19,6 +19,7 @@ module.exports.sendRegistrationEmail = (user) => {
       subject: `Bienvenido a Restaumanía ${user.name}!`,
       html: `
         <h3>Bienvenido a AGO, tu plataforma para encontrar todo lo que necesitas para tener una vida cómoda</h3>
+        <p> Por favor, pulsa aquí para acceder a la cuenta premium  <button> PremiuM</button> </p>
         `,
     })
     .then(() => {
