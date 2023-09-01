@@ -14,7 +14,7 @@ const usersSchema = new Schema({
     comments: [{ type: Schema.ObjectId, required: false , ref: "comments" }],
     jobs: [{ type: Schema.ObjectId, required: false , ref: "jobs" }],
     role:{type:String, default:"user", enum:["Admin","user","Company"]},
-    img:{ type: String, requires: false}
+    img:{ type: String, requires: false, default:"https://res.cloudinary.com/dxnzcewsy/image/upload/v1693542647/proyecto%20final/userDefault.png"}
 },{
     collection: "users"
 }
