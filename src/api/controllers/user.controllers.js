@@ -53,13 +53,10 @@ const register = async (req, res ) => {
         if (await usedEmail(newUser.email)) {
             return res.status(400).json({message:"the email already exists"})
         }
-
         newUser.password = bcrypt.hashSync(newUser.password,10);
         const createdUser = await newUser.save();
 
         return res.status(201).json(createdUser);
-
-
     } catch (error) {
         return res.status(500).json(error)
     }
