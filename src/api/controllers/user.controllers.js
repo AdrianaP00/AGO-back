@@ -34,9 +34,6 @@ const putUser = async (req, res) => {
         if (!updateUser) {
             return res.status(404).json({ message: "Oh no! we don't have this user" })
         }
-        if (!validatePassword(updateUser.password)) {
-            return res.status(400).json({message:"invalid password"})
-        }
         return res.status(200).json(updateUser)
     } catch (error) {
         return res.status(500).json(error)
