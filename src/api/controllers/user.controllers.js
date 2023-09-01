@@ -37,9 +37,7 @@ const putUser = async (req, res) => {
         if (!validatePassword(updateUser.password)) {
             return res.status(400).json({message:"invalid password"})
         }
-        putUser.password = bcrypt.hashSync(putUser.password,10);
-        const update = await putUser.updateOne();
-        return res.status(200).json(update,updateUser)
+        return res.status(200).json(updateUser)
     } catch (error) {
         return res.status(500).json(error)
     }
