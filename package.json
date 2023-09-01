@@ -7,6 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "seedusers": "node ./src/seeds/user.seeds.js",
+    "seedjobs": "node ./src/seeds/jobs.seeds.js",
+    "seedcomments": "node ./src/seeds/comments.seeds.js",
+    "seedadv": "node ./src/seeds/advertisement.seeds.js",
+    "seedcompany": "node ./src/seeds/company.seeds.js",
     "jwt": "node ./src/utils/jwt.js"
   },
   "keywords": [],
@@ -14,10 +19,12 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "cloudinary": "^1.40.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.5",
+    "nodemailer": "^6.9.4",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.2"
   },
