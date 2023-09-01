@@ -20,12 +20,9 @@ const getChat = async (req, res) => {
 };
 
 const postChat = async (req, res) => {
-  const newChat = new Chat({
-    ...req.body,
-    userId: req.user._id,
-});
-const createChat = await newChat.save();
-return res.status(201).json(createChat);
+  const newChat = new Chat(req.body);
+  const createChat = await newChat.save();
+  return res.status(201).json(createChat);
 }
 
 const putChat = async (req, res) => {

@@ -11,7 +11,7 @@ const companyArray = [
         country: "United States",
         logo: "logo1.jpg",
         numberEmployes: 50,
-        id_user: "64f049bc35414fa61febf522",
+        id_user: "64f1f76422539ea74d29fa2d",
       },
       {
         name: "Global Services Corp",
@@ -21,7 +21,7 @@ const companyArray = [
         country: "United Kingdom",
         logo: "logo2.jpg",
         numberEmployes: 200,
-        id_user: "64f049bc35414fa61febf522",
+        id_user: "64f1f76422539ea74d29fa2d",
       },
       {
         name: "Food Delight",
@@ -31,7 +31,7 @@ const companyArray = [
         country: "Canada",
         logo: "logo3.jpg",
         numberEmployes: 30,
-        id_user:"64f049bc35414fa61febf522",
+        id_user:"64f1f76422539ea74d29fa2d",
       },
       {
         name: "GreenTech Solutions",
@@ -41,7 +41,7 @@ const companyArray = [
         country: "Australia",
         logo: "logo4.jpg",
         numberEmployes: 80,
-        id_user:"64f049bc35414fa61febf522",
+        id_user:"64f1f76422539ea74d29fa2d",
       },
       {
         name: "Fashion Forward",
@@ -51,7 +51,7 @@ const companyArray = [
         country: "France",
         logo: "logo5.jpg",
         numberEmployes: 150,
-        id_user: "64f049bc35414fa61febf522",
+        id_user: "64f1f76422539ea74d29fa2d",
       }]
 
 const DB_URL= process.env.DB_URL;

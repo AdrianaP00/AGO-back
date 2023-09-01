@@ -24,7 +24,7 @@ const checkAuth = async (req, res) => {
 
 const isAuth = async (req, res, next) => {
     try {
-        checkAuth(req, res);
+        await checkAuth(req, res);
         next();
     } catch (error) {
         return res.status(500).json(error);
@@ -33,9 +33,9 @@ const isAuth = async (req, res, next) => {
 
 const isUser = async( req,res,next) =>{
     try {
-        checkAuth(req, res);
+        await checkAuth(req, res);
         const userLogged = req.user;
-        if (userLogged.role !== "ROLE_USER" || userLogged.role !== "ROLE_ADMIN") {
+        if (userLogged.role !== "ROLE_USER" && userLogged.role !== "ROLE_ADMIN") {
             return res.status(401).json({message:"You have to be user"})
         }
         next()
@@ -47,9 +47,9 @@ const isUser = async( req,res,next) =>{
 
 const isCompany = async( req,res,next) =>{
     try {
-        checkAuth(req, res);
+        await checkAuth(req, res);
         const userLogged = req.user;
-        if (userLogged.role !== "ROLE_COMPANY" || userLogged.role !== "ROLE_ADMIN") {
+        if (userLogged.role !== "ROLE_COMPANY" && userLogged.role !== "ROLE_ADMIN") {
             return res.status(401).json({message:"You have to be a Company"})
         }
         next()
@@ -61,7 +61,7 @@ const isCompany = async( req,res,next) =>{
 
 const isAdmin = async( req,res,next) =>{
     try {
-        checkAuth(req, res);
+        await checkAuth(req, res);
         const userLogged = req.user;
         if (userLogged.role !== "ROLE_ADMIN") {
             return res.status(401).json({message:"You have to be admin"})
