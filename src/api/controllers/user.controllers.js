@@ -30,7 +30,10 @@ const putUser = async (req, res) => {
         const { id } = req.params
         const putUser = new users(req.body)
         putUser._id = id;
-        console.log("paasssseowdad",putUser.password)
+        console.log("comoprobaorbaoejbojalbnds",putUser.password)
+        if (!validatePassword(putUser.password)) {
+            return res.status(400).json({message:"Invalid password formating"})
+        }
         putUser.password = bcrypt.hashSync(putUser.password, 10);
         const updateUser = await users.findByIdAndUpdate(id, putUser, { new: true })
         if (!updateUser) {
