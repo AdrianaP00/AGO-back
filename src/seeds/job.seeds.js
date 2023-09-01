@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
-const jobs = require("../api/models/jobs.models");
+const jobs = require("../api/models/job.models");
 
 const jobsArray = [
         {

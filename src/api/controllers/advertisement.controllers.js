@@ -2,8 +2,8 @@ const advertisement = require("../models/advertisement.models");
 
 const getAdvertisement = async (req, res) => {
     try {
-        const allAdvertisement = await advertisement.find();
-        return res.status(200).json(allAdvertisement);
+        const allAdvertisement = await advertisement.find()
+        return res.status(200).json(allAdvertisement)
     } catch (error) {
         return res.status(500).json(error);
     }
@@ -22,10 +22,7 @@ const getOneAdvertisement = async (req, res) => {
 
 const postAdvertisement = async (req, res) => {
     try {
-        const newAdvertisement = new advertisement({
-            ...req.body,
-            userId: req.user._id,
-        });
+        const newAdvertisement = new advertisement(req.body);
         const createAdvertisement = await newAdvertisement.save();
         return res.status(201).json(createAdvertisement);
     } catch (error) {

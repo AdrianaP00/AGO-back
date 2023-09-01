@@ -4,18 +4,18 @@ const Users = require("../api/models/user.models");
 
 const usersArray = [
         // Users with 'user' role
-        { name: 'User 1', age: 25, email: 'user1@example.com', password: 'password1', role: 'user' },
-        { name: 'User 2', age: 30, email: 'user2@example.com', password: 'password2', role: 'user' },
-        { name: 'User 3', age: 28, email: 'user3@example.com', password: 'password3', role: 'user' },
-        { name: 'User 4', age: 22, email: 'user4@example.com', password: 'password4', role: 'user' },
-        { name: 'User 5', age: 29, email: 'user5@example.com', password: 'password5', role: 'user' },
+        { name: 'User 1', age: 25, email: 'user1@example.com', password: 'password1', role: 'ROLE_USER' },
+        { name: 'User 2', age: 30, email: 'user2@example.com', password: 'password2', role: 'ROLE_USER' },
+        { name: 'User 3', age: 28, email: 'user3@example.com', password: 'password3', role: 'ROLE_USER' },
+        { name: 'User 4', age: 22, email: 'user4@example.com', password: 'password4', role: 'ROLE_USER' },
+        { name: 'User 5', age: 29, email: 'user5@example.com', password: 'password5', role: 'ROLE_USER' },
         
         // Users with 'Company' role
-        { name: 'Company 1', age: 40, email: 'company1@example.com', password: 'password6', role: 'Company' },
-        { name: 'Company 2', age: 35, email: 'company2@example.com', password: 'password7', role: 'Company' },
-        { name: 'Company 3', age: 32, email: 'company3@example.com', password: 'password8', role: 'Company' },
-        { name: 'Company 4', age: 45, email: 'company4@example.com', password: 'password9', role: 'Company' },
-        { name: 'Company 5', age: 50, email: 'company5@example.com', password: 'password10', role: 'Company' },
+        { name: 'Company 1', age: 40, email: 'company1@example.com', password: 'password6', role: 'ROLE_COMPANY' },
+        { name: 'Company 2', age: 35, email: 'company2@example.com', password: 'password7', role: 'ROLE_COMPANY' },
+        { name: 'Company 3', age: 32, email: 'company3@example.com', password: 'password8', role: 'ROLE_COMPANY' },
+        { name: 'Company 4', age: 45, email: 'company4@example.com', password: 'password9', role: 'ROLE_COMPANY' },
+        { name: 'Company 5', age: 50, email: 'company5@example.com', password: 'password10', role: 'ROLE_COMPANY' },
     ];
 
 const DB_URL= process.env.DB_URL;

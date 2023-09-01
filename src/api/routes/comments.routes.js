@@ -8,7 +8,7 @@ const commentRouter = express.Router();
 commentRouter.get("/",[isAuth], getComments);
 commentRouter.get("/:id",[isAuth], getOneComment)
 commentRouter.post("/",[isAuth], postComment);
-commentRouter.put("/:id",[isAuth],[isUser],[isCompany], putComment);
+commentRouter.put("/:id",[isAuth], putComment);
 commentRouter.delete("/:id",[isAdmin], deleteComment);
 
 module.exports= commentRouter;
