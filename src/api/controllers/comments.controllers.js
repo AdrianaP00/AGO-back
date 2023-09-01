@@ -23,7 +23,7 @@ const postComment = async (req, res) => {
     try {
         const newComment= new Comments(req.body)
         const createdComment = await newComment.save()
-        const fullComment = await Comments.findById(createdComment._id).populate("user").populate("jobs").populate("company")
+        const fullComment = await Comments.findById(createdComment._id)
         return res.status(201).json(fullComment)
     } catch (error) {
         return res.status(500).json(error)

@@ -1,6 +1,5 @@
 const express = require('express');
 const usersRouter = express.Router();
-const { isUser, isAuth, isAdmin, isCompany } = require("../../middlewares/auth")
 const {register, login,getUsers,getOneUser,putUser,deleteUser }= require("../controllers/user.controllers")
 
 /**

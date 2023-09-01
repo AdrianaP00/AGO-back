@@ -7,7 +7,7 @@ const {validateEmail,validatePassword,usedEmail,validateName} = require("../../u
 
 const getUsers = async (req, res) => {
     try {
-      const allUsers = await users.find();
+      const allUsers = await users.find().populate("comments").populate("jobs");
       return res.status(200).json(allUsers);
     } catch (error) {
       return res.status(500).json(error);

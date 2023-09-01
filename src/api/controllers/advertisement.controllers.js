@@ -2,7 +2,7 @@ const advertisement = require("../models/advertisement.models");
 
 const getAdvertisement = async (req, res) => {
     try {
-        const allAdvertisement = await advertisement.find()
+        const allAdvertisement = await advertisement.find().populate("users").populate("jobs")
         return res.status(200).json(allAdvertisement)
     } catch (error) {
         return res.status(500).json(error);
@@ -12,7 +12,7 @@ const getAdvertisement = async (req, res) => {
 const getOneAdvertisement = async (req, res) => {
     try {
         const { id } = req.params
-        const oneAdvertisement = await advertisement.findById(id)
+        const oneAdvertisement = await advertisement.findById(id).populate("users").populate("jobs")
         return res.status(200).json(oneAdvertisement)
 
     } catch (error) {
