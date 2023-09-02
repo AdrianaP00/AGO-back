@@ -12,6 +12,7 @@
     "seedcomment": "node ./src/seeds/comment.seeds.js",
     "seedadv": "node ./src/seeds/advertisement.seeds.js",
     "seedcompany": "node ./src/seeds/company.seeds.js",
+    "seedmap": "node ./src/seeds/map.seeds.js",
     "jwt": "node ./src/utils/jwt.js"
   },
   "keywords": [],
@@ -21,8 +22,10 @@
     "bcrypt": "^5.1.1",
     "cloudinary": "^1.40.0",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.1",
+    "leaflet": "^1.9.4",
     "mongoose": "^7.4.5",
     "nodemailer": "^6.9.4",
     "swagger-jsdoc": "^6.2.8",

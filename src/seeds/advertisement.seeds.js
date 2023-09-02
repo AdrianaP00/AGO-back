@@ -12,6 +12,8 @@ const advertisementsSeed = [
       extra: "Beneficios adicionales incluidos",
       localization: "Ciudad A",
       skills: "JavaScript, React, Node.js, MongoDB",
+      map: "64f332890873d39086ca8170",
+
     },
     {
       title: "Diseñador UX/UI",
@@ -21,6 +23,7 @@ const advertisementsSeed = [
       extra: "Horario flexible",
       localization: "Ciudad B",
       skills: "Diseño de experiencia, Adobe Creative Suite",
+      map: "64f332890873d39086ca8170",
     },
     {
       title: "Ingeniero de Software Senior",
@@ -30,6 +33,7 @@ const advertisementsSeed = [
       extra: "Oportunidades de desarrollo profesional",
       localization: "Ciudad C",
       skills: "Java, Spring, AWS",
+      map: "64f332890873d39086ca8170",
     },
     {
       title: "Especialista en Marketing Digital",
@@ -39,6 +43,7 @@ const advertisementsSeed = [
       extra: "Bonos por desempeño",
       localization: "Ciudad D",
       skills: "Marketing digital, SEO, redes sociales",
+      map: "64f332890873d39086ca8170",
     },
     {
       title: "Analista de Datos",
@@ -48,6 +53,7 @@ const advertisementsSeed = [
       extra: "Ambiente de trabajo colaborativo",
       localization: "Ciudad E",
       skills: "Análisis de datos, SQL, Python",
+      map: "64f332890873d39086ca8170",
     },
     // Ofertas de Freelancers
     {
@@ -57,6 +63,7 @@ const advertisementsSeed = [
       salary: "Tarifa por proyecto",
       localization: "Remoto",
       skills: "HTML, CSS, JavaScript",
+      map: "64f332890873d39086ca8170",
     },
     {
       title: "Diseñador Gráfico Independiente",
@@ -65,6 +72,7 @@ const advertisementsSeed = [
       salary: "Por hora o por proyecto",
       localization: "Remoto",
       skills: "Diseño gráfico, Adobe Creative Suite",
+      map: "64f332890873d39086ca8170",
     },
     {
       title: "Redactor de Contenidos Freelance",
@@ -73,6 +81,7 @@ const advertisementsSeed = [
       salary: "Tarifa por palabra",
       localization: "Remoto",
       skills: "Redacción, SEO",
+      map:"64f332890873d39086ca8170",
     },
     {
       title: "Consultor de Marketing Digital",
@@ -81,6 +90,7 @@ const advertisementsSeed = [
       salary: "Tarifa por proyecto",
       localization: "Remoto",
       skills: "Marketing digital, estrategia en línea",
+      map: "64f332890873d39086ca8170",
     },
     {
       title: "Desarrollador de Aplicaciones Móviles",
@@ -89,6 +99,7 @@ const advertisementsSeed = [
       salary: "Negociable",
       localization: "Remoto",
       skills: "Desarrollo de aplicaciones móviles, Android, iOS",
+      map: "64f332890873d39086ca8170",
     },
   ];
   

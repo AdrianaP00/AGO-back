@@ -18,7 +18,7 @@ const getOneJobs = async (req, res) => {
     } catch (error) {
         return res.status(500).json(error)
     }
-}
+};
 
 const postJobs = async (req, res) => {
     try {

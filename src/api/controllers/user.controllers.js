@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const {generateSign} = require("../../utils/jwt")
 const {validateEmail,validatePassword,usedEmail,validateName} = require("../../utils/validators")
-  const { sendRegistrationEmail } = require("../../utils/mailer.config");
+const { sendRegistrationEmail } = require("../../utils/mailer.config");
 
 const getUsers = async (req, res) => {
     try {
