@@ -2,7 +2,7 @@ const Company = require("../models/company.models");
 
 const getCompanys = async (req, res) => {
   try {
-    const companys = await Company.find();
+    const companys = await Company.find().populate("id_user").populate("id_advertisement");
     return res.status(200).json(companys);
   } catch (error) {
     return res.status(500).json(error);
@@ -12,7 +12,7 @@ const getCompanys = async (req, res) => {
 const getCompany = async (req, res) => {
   try {
     const { id } = req.params;
-    const company = await Company.findById(id);
+    const company = await Company.findById(id).populate("id_user").populate("id_advertisement");
     return res.status(200).json(company);
   } catch (error) {
     return res.status(500).json(error);
