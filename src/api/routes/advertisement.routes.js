@@ -5,8 +5,8 @@ const {getAdvertisement,getOneAdvertisement,postAdvertisement,putAdvertisement,d
 
 const advRoutes = express.Router();
 
-advRoutes.get("/",[isAuth],getAdvertisement);
-advRoutes.get("/:id",[isAuth], getOneAdvertisement)
+advRoutes.get("/",getAdvertisement);
+advRoutes.get("/:id",getOneAdvertisement)
 advRoutes.post("/",[isAuth], postAdvertisement);
 advRoutes.put("/:id",[isAuth], putAdvertisement);
 advRoutes.delete("/:id",[isAuth],deleteAdvertisement);
