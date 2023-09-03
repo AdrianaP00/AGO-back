@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const Users = require("../api/models/user.models");
+// import { userDataForSeeds } from "../dbs/user.db"
 
 const usersArray = [
         // Users with 'user' role
@@ -32,6 +33,17 @@ mongoose.connect(DB_URL)
 
 .then(async ()=> {
     const usersMap = usersArray.map((user) => new Users(user));
+    
+// Necesitamos hashear la contraseña incluso cuando se hace el seeds psra que aparezcan como comtraseñas raras
+    // const usuariosArray = usuariosData.map((user) => {
+    //     const encryptedPassword = bcrypt.hashSync(user.password, 10);
+    //     const newUser = {
+    //       ...user,
+    //       password: encryptedPassword,
+    //     };
+    //     return new Users(newUser);
+    //   });
+
     await Users.insertMany(usersMap);
     console.log("ok");
 })
