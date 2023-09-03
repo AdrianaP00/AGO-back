@@ -7,7 +7,7 @@ const jobSchema = new Schema(
     description: { type: String, required: true },
     time: { type: String, required: true },
     hourSalary: { type: Number, required: true },
-    specialization: [{type:String, required: false}]
+    img:{type: String, required: true}
   }
 );
 

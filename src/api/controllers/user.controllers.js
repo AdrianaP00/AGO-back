@@ -7,7 +7,7 @@ const { sendRegistrationEmail } = require("../../utils/mailer.config");
 
 const getUsers = async (req, res) => {
     try {
-      const allUsers = await users.find().populate("comments").populate("jobs").populate("favoriteCompany");
+      const allUsers = await users.find().populate("comments").populate("specialization").populate("favoriteCompany").populate("contacts");
       return res.status(200).json(allUsers);
     } catch (error) {
       return res.status(500).json(error);
