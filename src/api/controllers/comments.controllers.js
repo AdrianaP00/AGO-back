@@ -2,7 +2,7 @@ const Comments = require("../models/comment.models")
 
 const getComments = async (req, res) => {
     try {
-      const allComments = await Comments.find().populate("user").populate("jobs").populate("company");
+      const allComments = await Comments.find().populate("user").populate("jobs").populate("company").populate("favoriteCompany");
       return res.status(200).json(allComments);
     } catch (error) {
       return res.status(500).json(error);
@@ -12,7 +12,7 @@ const getComments = async (req, res) => {
 const getOneComment= async (req, res) => {
     try {
         const { id } = req.params
-        const oneComments = await Comments.findById(id).populate("user").populate("jobs").populate("company")
+        const oneComments = await Comments.findById(id).populate("user").populate("jobs").populate("company").populate("favoriteCompany")
         return res.status(200).json(oneComments)
 
     } catch (error) {
