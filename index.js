@@ -19,6 +19,7 @@ const commentRouter = require("./src/api/routes/comments.routes")
 const jobsRoutes = require("./src/api/routes/jobs.routes")
 const companyRoutes = require("./src/api/routes/company.routes")
 const mapRoutes = require("./src/api/routes/map.routes")
+const formRouter = require("./src/api/routes/form.routes")
 
 
 const options = {
@@ -64,7 +65,7 @@ app.use("/advertisement", advRoutes);
 app.use("/jobs", jobsRoutes);
 app.use("/company", companyRoutes);
 app.use("/map", mapRoutes);
-
+app.use("/form", formRouter);
 
 
 const specs = swaggerJsDoc(options);
