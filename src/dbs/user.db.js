@@ -1,4 +1,4 @@
-const userDataForSeeds =[
+const userData =[
   {
     "name": "Juan Pérez",
     "age": 32,
@@ -10,8 +10,8 @@ const userDataForSeeds =[
     "specialization": ["Albañil", "Electricista"],
     "yearsOfExperience": "2010-05-15T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "María García",
@@ -24,8 +24,8 @@ const userDataForSeeds =[
     "specialization": ["Carpintero", "Pintor"],
     "yearsOfExperience": "2012-09-10T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Antonio Rodríguez",
@@ -35,11 +35,11 @@ const userDataForSeeds =[
     "role": "ROLE_USER",
     "phoneNumber": "+34-345-678-901",
     "address": "Calle del Sol, 78, Valencia",
-    "specialization": ["Fontanero", "Jardinero"],
+    "specialization": ["Carpintero", "Jardinero"],
     "yearsOfExperience": "2015-04-22T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Luisa Martínez",
@@ -52,8 +52,8 @@ const userDataForSeeds =[
     "specialization": ["Yesero", "Techador"],
     "yearsOfExperience": "2018-06-18T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Manuel López",
@@ -66,8 +66,8 @@ const userDataForSeeds =[
     "specialization": ["Hormigonero", "Pintor"],
     "yearsOfExperience": "2007-11-25T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Ana Sánchez",
@@ -77,11 +77,11 @@ const userDataForSeeds =[
     "role": "ROLE_USER",
     "phoneNumber": "+34-678-901-234",
     "address": "Plaza del Ayuntamiento, 32, Madrid",
-    "specialization": ["Carpintero", "Fontanero"],
+    "specialization": ["Carpintero", "Carpintero"],
     "yearsOfExperience": "2013-08-02T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "David Fernández",
@@ -94,8 +94,8 @@ const userDataForSeeds =[
     "specialization": ["Electricista", "Hormigonero"],
     "yearsOfExperience": "2011-03-30T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Sofía Ramírez",
@@ -108,8 +108,8 @@ const userDataForSeeds =[
     "specialization": ["Pintor", "Jardinero"],
     "yearsOfExperience": "2016-07-11T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Javier Torres",
@@ -119,11 +119,11 @@ const userDataForSeeds =[
     "role": "ROLE_USER",
     "phoneNumber": "+34-901-234-567",
     "address": "Calle de la Montaña, 25, Madrid",
-    "specialization": ["Fontanero", "Techador"],
+    "specialization": ["Carpintero", "Techador"],
     "yearsOfExperience": "2019-10-05T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Laura González",
@@ -136,8 +136,8 @@ const userDataForSeeds =[
     "specialization": ["Electricista", "Yesero"],
     "yearsOfExperience": "2017-12-29T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Carlos Rodríguez",
@@ -150,8 +150,8 @@ const userDataForSeeds =[
     "specialization": ["Albañil", "Carpintero"],
     "yearsOfExperience": "2014-04-17T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Marta López",
@@ -164,8 +164,8 @@ const userDataForSeeds =[
     "specialization": ["Hormigonero", "Jardinero"],
     "yearsOfExperience": "2018-02-14T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Pedro García",
@@ -178,8 +178,8 @@ const userDataForSeeds =[
     "specialization": ["Techador", "Pintor"],
     "yearsOfExperience": "2011-09-03T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Ana Pérez",
@@ -189,11 +189,11 @@ const userDataForSeeds =[
     "role": "ROLE_USER",
     "phoneNumber": "+34-567-890-123",
     "address": "Plaza de la Libertad, 37, Valencia",
-    "specialization": ["Fontanero", "Carpintero"],
+    "specialization": ["Carpintero", "Carpintero"],
     "yearsOfExperience": "2010-08-22T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Daniel Martínez",
@@ -206,8 +206,8 @@ const userDataForSeeds =[
     "specialization": ["Electricista", "Hormigonero"],
     "yearsOfExperience": "2012-11-10T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Sara Rodríguez",
@@ -220,8 +220,8 @@ const userDataForSeeds =[
     "specialization": ["Pintor", "Jardinero"],
     "yearsOfExperience": "2015-06-05T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Jorge López",
@@ -231,11 +231,11 @@ const userDataForSeeds =[
     "role": "ROLE_USER",
     "phoneNumber": "+34-123-456-789",
     "address": "Calle del Olivo, 55, Valencia",
-    "specialization": ["Fontanero", "Techador"],
+    "specialization": ["Carpintero", "Techador"],
     "yearsOfExperience": "2016-10-18T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Elena García",
@@ -248,8 +248,8 @@ const userDataForSeeds =[
     "specialization": ["Electricista", "Yesero"],
     "yearsOfExperience": "2018-04-12T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Alejandro Martínez",
@@ -262,8 +262,8 @@ const userDataForSeeds =[
     "specialization": ["Albañil", "Carpintero"],
     "yearsOfExperience": "2017-07-22T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Mónica Sánchez",
@@ -276,8 +276,8 @@ const userDataForSeeds =[
     "specialization": ["Hormigonero", "Pintor"],
     "yearsOfExperience": "2019-09-07T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Raúl Torres",
@@ -287,11 +287,11 @@ const userDataForSeeds =[
     "role": "ROLE_USER",
     "phoneNumber": "+34-567-890-123",
     "address": "Calle Mayor, 57, Madrid",
-    "specialization": ["Fontanero", "Jardinero"],
+    "specialization": ["Carpintero", "Jardinero"],
     "yearsOfExperience": "2014-01-28T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Lucía González",
@@ -304,8 +304,8 @@ const userDataForSeeds =[
     "specialization": ["Techador", "Yesero"],
     "yearsOfExperience": "2013-03-19T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Andrés Pérez",
@@ -315,11 +315,11 @@ const userDataForSeeds =[
     "role": "ROLE_USER",
     "phoneNumber": "+34-901-234-567",
     "address": "Calle de la Montaña, 8, Valencia",
-    "specialization": ["Electricista", "Fontanero"],
+    "specialization": ["Electricista", "Carpintero"],
     "yearsOfExperience": "2016-05-02T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Natalia Martínez",
@@ -332,8 +332,8 @@ const userDataForSeeds =[
     "specialization": ["Albañil", "Carpintero"],
     "yearsOfExperience": "2015-11-14T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Roberto López",
@@ -346,8 +346,8 @@ const userDataForSeeds =[
     "specialization": ["Hormigonero", "Pintor"],
     "yearsOfExperience": "2019-02-25T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Carmen Rodríguez",
@@ -357,11 +357,11 @@ const userDataForSeeds =[
     "role": "ROLE_USER",
     "phoneNumber": "+34-345-678-901",
     "address": "Calle del Roble, 92, Valencia",
-    "specialization": ["Fontanero", "Jardinero"],
+    "specialization": ["Carpintero", "Jardinero"],
     "yearsOfExperience": "2018-10-12T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "José Martínez",
@@ -374,8 +374,8 @@ const userDataForSeeds =[
     "specialization": ["Electricista", "Yesero"],
     "yearsOfExperience": "2017-06-28T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Isabel Sánchez",
@@ -388,8 +388,8 @@ const userDataForSeeds =[
     "specialization": ["Pintor", "Jardinero"],
     "yearsOfExperience": "2016-04-04T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Pablo Torres",
@@ -402,8 +402,8 @@ const userDataForSeeds =[
     "specialization": ["Techador", "Hormigonero"],
     "yearsOfExperience": "2015-09-17T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Cristina García",
@@ -416,8 +416,8 @@ const userDataForSeeds =[
     "specialization": ["Albañil", "Carpintero"],
     "yearsOfExperience": "2014-12-08T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Héctor Rodríguez",
@@ -430,8 +430,8 @@ const userDataForSeeds =[
     "specialization": ["Hormigonero", "Pintor"],
     "yearsOfExperience": "2013-03-03T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Lorena Martínez",
@@ -441,11 +441,11 @@ const userDataForSeeds =[
     "role": "ROLE_USER",
     "phoneNumber": "+34-123-456-789",
     "address": "Plaza de la Libertad, 45, Madrid",
-    "specialization": ["Fontanero", "Jardinero"],
+    "specialization": ["Carpintero", "Jardinero"],
     "yearsOfExperience": "2011-10-22T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Diego López",
@@ -458,8 +458,8 @@ const userDataForSeeds =[
     "specialization": ["Electricista", "Yesero"],
     "yearsOfExperience": "2010-09-18T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Alicia García",
@@ -472,8 +472,8 @@ const userDataForSeeds =[
     "specialization": ["Pintor", "Jardinero"],
     "yearsOfExperience": "2017-01-12T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
   },
   {
     "name": "Roberto Sánchez",
@@ -486,8 +486,10 @@ const userDataForSeeds =[
     "specialization": ["Techador", "Hormigonero"],
     "yearsOfExperience": "2015-05-07T23:00:00.000+00:00",
     "img": "",
-    "favoriteCompany":[""],
-    "jobs": [""]
+    "favoriteCompany":[],
+    "jobs": []
+    
+    
   },
     {
       "name": "Construcciones Martínez",
@@ -496,7 +498,7 @@ const userDataForSeeds =[
       "password": "password123",
       "phoneNumber": "+34-934-567-890",
       "address": "Calle Principal, 123, Barcelona",
-      "specialization": ["Albañil", "Fontanero"],
+      "specialization": ["Albañil", "Carpintero"],
       "yearsOfExperience": "2005-03-15T00:00:00.000+00:00",
       "img": "https://example.com/img1.jpg",
       "role": "ROLE_COMPANY",
@@ -522,7 +524,7 @@ const userDataForSeeds =[
       "password": "password789",
       "phoneNumber": "+34-936-456-789",
       "address": "Calle del Agua, 7, Valencia",
-      "specialization": ["Fontanero"],
+      "specialization": ["Carpintero"],
       "yearsOfExperience": "2008-11-10T00:00:00.000+00:00",
       "img": "https://example.com/img3.jpg",
       "role": "ROLE_COMPANY",
@@ -556,4 +558,4 @@ const userDataForSeeds =[
     }
   
 ]
-module.exports = userDataForSeeds
+module.exports = userData
