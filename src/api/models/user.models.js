@@ -9,11 +9,12 @@ const userSchema = new Schema({
     password: { type: String, required: true, trim: true },
     phoneNumber: { type: String, required: false},
     address: { type: String, required: false},
-    specialization: { type: String, required: false },
+    specialization: [{ type: String, required: false, enum: ["Albañil", "Carpintero", "Electricista", "Fontanero ", "Pintor", "Jardinero", "Yesero", "Techador", "Hormigonero",]}],//siendo usuario, puedes ofrecer hasta 3 servicios por si te quires promocionar
     yearsOfExperience: { type: Date, required: false},
     comments: [{ type: Schema.ObjectId, required: false , ref: "comment" }],
     jobs: [{ type: Schema.ObjectId, required: false , ref: "job" }],
-    role:{type:String, default:"ROLE_USER", enum:["ROLE_USER","ROLE_COMPANY","ROLE_ADMIN"]},
+    role:{type:String,  enum:["ROLE_USER","ROLE_COMPANY","ROLE_ADMIN"]},
+    companyTypes:[{type:String,  enum:["SL","SA","SAL","CB","SCOL","SCOM","SCOR"]}],  //añadido tipo de empresa, para que al elegir rol de company al regisrrarte, especifiques qué tipo de empresa vas a crear luego y se pasa el parámetro.
     img:{ type: String, requires: false, default:"https://res.cloudinary.com/dxnzcewsy/image/upload/v1693542647/proyecto%20final/userDefault.png"}
 },{
     collection: "user"
