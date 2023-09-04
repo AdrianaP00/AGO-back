@@ -17,7 +17,7 @@ const getUsers = async (req, res) => {
 const getOneUser = async (req, res) => {
     try {
         const { id } = req.params
-        const oneUser = await users.findById(id)
+        const oneUser = await users.findById(id).populate("comments").populate("specialization").populate("favoriteCompany").populate("contacts");
         return res.status(200).json(oneUser)
 
     } catch (error) {
