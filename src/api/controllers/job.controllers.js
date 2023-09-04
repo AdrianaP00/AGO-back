@@ -38,7 +38,7 @@ const putJob = async (req, res) => {
     if (!updateJobs) {
       return res
         .status(404)
-        .json({ message: "Oh no! we don't have this user" });
+        .json({ message: "job not found" });
     }
     return res.status(200).json(updateJobs);
   } catch (error) {
@@ -51,7 +51,7 @@ const deleteJob = async (req, res) => {
     const { id } = req.params;
     const deletejob = await Job.findByIdAndDelete(id);
     if (!deletejob) {
-      return res.status(404).json({ message: "Ops! retry" });
+      return res.status(404).json({ message: "job not found" });
     }
     return res.status(200).json(deletejob);
   } catch (error) {

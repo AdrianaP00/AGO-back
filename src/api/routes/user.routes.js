@@ -89,23 +89,6 @@ const {
  *       required:
  *         - email
  *         - password
- *     UsersLogInRes:
- *       type: object
- *       properties:
- *         user:
- *           type: object
- *           $ref: '#/components/schemas/users'
- *           description: Users object
- *         token:
- *           type: string
- *           description: Valid Bearer token
- *       required:
- *         - user
- *         - token
- *       example:
- *         user:
- *           name: Adry
- *         token: Adry123
  */
 
 /**
