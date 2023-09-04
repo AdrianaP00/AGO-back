@@ -22,9 +22,9 @@ const getCompany = async (req, res) => {
 const postCompany = async (req, res) => {
   try {
     const { id } = req.params
-    const putCompany = new Company(req.body)
-    putCompany._id = id;
-    const updateCompany= await Company.findByIdAndUpdate(id, putCompany, { new: true })
+    const postCompany = new Company(req.body)
+    postCompany._id = id;
+    const updateCompany= await Company.findByIdAndUpdate(id, postCompany, { new: true })
     if (!updateCompany) {
         return res.status(404).json({ message: "Oh no! retry" })
     }
