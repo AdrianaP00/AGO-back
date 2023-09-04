@@ -16,11 +16,6 @@ const {
 /**
  * @swagger
  * components:
- *   securitySchemes:
- *     bearerAuth:
- *       type: http
- *       scheme: bearer
- *       bearerFormat: JWT
  *   schemas:
  *     Users:
  *       type: object
@@ -49,16 +44,16 @@ const {
  *         yearsOfExperiencetype:
  *            type: number
  *            description: Users years of experiment
- * *       comments:
+ *         comments:
  *            type: array
  *            items:
- *            type: string
- *           uniqueItems: true
- *           description: Users comments
+ *              type: string
+ *            uniqueItems: true
+ *            description: Users comments
  *         jobs:
- *            type: array
- *            items:
- *            type: string
+ *           type: array
+ *           items:
+ *             type: string
  *           uniqueItems: true
  *           description: Users jobs type
  *         role:
@@ -70,11 +65,19 @@ const {
  *         - password
  *         - role
  *       example:
- *         name:Adry
- *         age: 23
- *         email: adriana00@gmail.com
- *         password: AdrianaP00!
- *         role: user
+ *         name: Construcciones Martínez
+ *         age: 42
+ *         email: info@construccionesmartinez.com
+ *         password: password123
+ *         phoneNumber: +34-934-567-890
+ *         address: Calle Principal, 123, Barcelona
+ *         yearsOfExperience: 2005-03-15T00:00:00.000+00:00
+ *         specialization: []
+ *         contacts: []
+ *         comments: []
+ *         img: https://example.com/img1.jpg
+ *         role: ROLE_COMPANY
+ *         companyTypes: ["SL"]
  *     UsersLogIn:
  *       type: object
  *       properties:
@@ -102,12 +105,8 @@ const {
  *         - token
  *       example:
  *         user:
- *         name:Adry
- *          age: 23
- *          email: adriana00@gmail.com
- *          password: AdrianaP00!
- *          role: user
- *          token: Adry123
+ *           name: Adry
+ *         token: Adry123
  */
 
 /**
@@ -116,8 +115,6 @@ const {
  *   get:
  *     summary: Get all Users
  *     tags: [Users]
- *     security:
- *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: All Users
@@ -126,7 +123,7 @@ const {
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/users'
+ *                 $ref: '#/components/schemas/Users'
  *       500:
  *         description: Internal server error
  */
@@ -138,8 +135,6 @@ userRouter.get("/", getUsers);
  *   get:
  *     summary: Obtain information about a specific users by ID
  *     tags: [Users]
- *     security:
- *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -154,7 +149,7 @@ userRouter.get("/", getUsers);
  *           application/json:
  *             schema:
  *               type: object
- *               $ref: '#/components/schemas/users'
+ *               $ref: '#/components/schemas/Users'
  *       500:
  *         description: Internal server error
  */
@@ -164,17 +159,15 @@ userRouter.get("/:id", getUser);
  * @swagger
  * /users/{id}:
  *   put:
- *     summary: Modify a specific User
- *     tags: [users]
- *     security:
- *       - bearerAuth: []
+ *     summary: Modify a specific User 
+ *     tags: [Users]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
- *             $ref: '#/components/schemas/users'
+ *             $ref: '#/components/schemas/Users'
  *     parameters:
  *       - in: path
  *         name: id
@@ -184,55 +177,138 @@ userRouter.get("/:id", getUser);
  *         description: User ID
  *     responses:
  *       200:
- *         description: Modified Users
+ *         description: Modified User
  *         content:
  *           application/json:
  *             schema:
  *               type: object
- *               $ref: '#/components/schemas/users'
+ *               $ref: '#/components/schemas/Users'
+ *       400:
+ *         description: Invalid password formating
+ *       404:
+ *         description: Oh no! we don't have this user
  *       500:
  *         description: Internal server error
  */
 userRouter.put("/:id", upload.single("image"), putUser);
 
-userRouter.put("/:id/confirm", putConfirmUser);
-
 /**
  * @swagger
- * /users/register:
- *   post:
- *     summary: Register a new Users
- *     tags:
+ * /users/{id}/confirm:
+ *   put:
+ *     summary: Confirm a specific User 
+ *     tags: [Users]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
- *             $ref: '#/components/schemas/users'
+ *             $ref: '#/components/schemas/Users'
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: User ID
+ *     responses:
+ *       200:
+ *         description: Confirmed User
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               $ref: '#/components/schemas/Users'
+ *       500:
+ *         description: Internal server error
+ */
+userRouter.put("/:id/confirm", putConfirmUser);
+
+/**
+ * @swagger
+ * /users/{id}/confirm:
+ *   get:
+ *     summary: Confirm a specific User 
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: User ID
+ *     responses:
+ *       200:
+ *         description: Confirmed User
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               $ref: '#/components/schemas/Users'
+ *       500:
+ *         description: Internal server error
+ */
+userRouter.get("/:id/confirm", confirmUser);
+
+/**
+ * @swagger
+ * /users/register:
+ *   post:
+ *     summary: Register a new User
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             $ref: '#/components/schemas/Users'
  *           examples:
  *             Autorized:
- *                 value:
- *                 name:Adry
- *                 age: 23
- *                 email: adriana00@gmail.com
- *                 password: AdrianaP00!
- *                 role: auth
- *             Company:
+ *               value:
+ *                 name: Abel
+ *                 age: 30
+ *                 email: autorized@disenador.com
+ *                 password: Autorized19!
+ *                 courses: ["64df8cadb94ecb4dc11c4ba6","64df8cadb94ecb4dc11c4ba7"]
+ *                 role: user
+ *     name: "Construcciones Martínez",
+    age: 42,
+    email: "info@construccionesmartinez.com",
+    password: "password123",
+    phoneNumber: "+34-934-567-890",
+    address: "Calle Principal, 123, Barcelona",
+    yearsOfExperience: "2005-03-15T00:00:00.000+00:00",
+    specialization: [],
+    contacts: [],
+    comments: [],
+    img: "https://example.com/img1.jpg",
+    role: "ROLE_COMPANY",
+    companyTypes: ["SL"],
+ *             Coach:
  *               value:
  *                 name: kain
  *                 age: 30
  *                 email: coach@disenador.com
  *                 password: Coach19!
- *                 role: company
- *             User:
- *               value:
- *                 name: Marco
- *                 age: 50
- *                 email: marco@disenador.com
- *                 password: Marco19!
- *                 role: user
- *
+ *                 courses: ["64df8cadb94ecb4dc11c4ba6","64df8cadb94ecb4dc11c4ba7"]
+ *                 role: coach
+ *   name: "Andrés Pérez",
+    age: 28,
+    email: "andres.perez@example.com",
+    password: "password12345678901234",
+    role: "ROLE_USER",
+    phoneNumber: "+34-901-234-567",
+    address: "Calle de la Montaña, 8, Valencia",
+    yearsOfExperience: "2016-05-02T23:00:00.000+00:00",
+    specialization: [],
+    contacts: [],
+    comments: [],
+    img: "",
+    favoriteCompany: [],
+    availability: ["De lunes a viernes, de 9:00 a 18:00"],
+    salary: 9,
  *     responses:
  *       200:
  *         description: Created Users
@@ -240,7 +316,9 @@ userRouter.put("/:id/confirm", putConfirmUser);
  *           application/json:
  *             schema:
  *               type: object
- *               $ref: '#/components/schemas/users'
+ *               $ref: '#/components/schemas/Users'
+ *       400:
+ *         description: invalid name/invalid email address/invalid password/the email already exists
  *       500:
  *         description: Internal server error
  */
@@ -276,6 +354,8 @@ userRouter.post("/register", register);
  *             schema:
  *               type: object
  *               $ref: '#/components/schemas/UsersLogInRes'
+ *       404:
+ *         description: incorrect email address/incorrect password
  *       500:
  *         description: Internal server error
  */
@@ -285,10 +365,8 @@ userRouter.post("/login", login);
  * @swagger
  * /users/{id}:
  *   delete:
- *     summary: Delete a specific Users by ID
- *     tags: [users]
- *     security:
- *       - bearerAuth: []
+ *     summary: Delete a specific User by ID
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: id
@@ -306,6 +384,5 @@ userRouter.post("/login", login);
  */
 userRouter.delete("/:id", deleteUser);
 
-userRouter.get("/:id/confirm", confirmUser);
 
 module.exports = userRouter;

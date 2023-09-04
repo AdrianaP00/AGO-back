@@ -38,7 +38,7 @@ const putMap = async (req, res) => {
     if (!updateMap) {
       return res
         .status(404)
-        .json({ message: "Oh no! we don't have this position" });
+        .json({ message: "location not found" });
     }
     return res.status(200).json(updateMap);
   } catch (error) {
@@ -51,7 +51,7 @@ const deleteMap = async (req, res) => {
     const { id } = req.params;
     const deleteMap = await Map.findByIdAndDelete(id);
     if (!deleteMap) {
-      return res.status(404).json({ message: "Ops! retry" });
+      return res.status(404).json({ message: "location not found" });
     }
     return res.status(200).json(deleteMap);
   } catch (error) {

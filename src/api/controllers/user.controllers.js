@@ -72,7 +72,7 @@ const register = async (req, res) => {
       return res.status(400).json({ message: "invalid name" });
     }
     if (!validateEmail(newUser.email)) {
-      return res.status(400).json({ message: " invalid email address" });
+      return res.status(400).json({ message: "invalid email address" });
     }
     if (!validatePassword(newUser.password)) {
       return res.status(400).json({ message: "invalid password" });
@@ -110,7 +110,7 @@ const deleteUser = async (req, res) => {
     const { id } = req.params;
     const deleteUser = await User.findByIdAndDelete(id);
     if (!deleteUser) {
-      return res.status(404).json({ message: "Ops! retry" });
+      return res.status(404).json({ message: "Id not found" });
     }
     return res.status(200).json(deleteUser);
   } catch (error) {

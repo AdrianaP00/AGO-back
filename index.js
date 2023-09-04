@@ -5,12 +5,14 @@ const { connect } = require("./src/utils/db");
 connect();
 
 const PORT = process.env.PORT;
-const CSS_URL =
-  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 
-const app = express();
+
+
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
+
+const app = express();
 const chatRoutes = require("./src/api/routes/chat.routes");
 const userRoutes = require("./src/api/routes/user.routes");
 const advRoutes = require("./src/api/routes/advertisement.routes");
@@ -24,18 +26,18 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "",
+      title: "AGO-BACK Documentation",
       version: "1.0.0",
     },
     servers: [
       {
         url: "http://localhost:5003",
-        description: "My API Documentation",
+        description: "AGO API Documentation",
       },
     ],
   },
   // This is to call all the file
-  apis: ["./AGO-BACK/src/**/*.js"],
+  apis: ["./src/api/**/*.js"],
 };
 
 app.use(express.json());
