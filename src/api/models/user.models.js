@@ -20,7 +20,8 @@ const userSchema = new Schema({
     role:{type:String,  enum:["ROLE_USER","ROLE_COMPANY","ROLE_ADMIN"]},
     companyTypes:[{type:String,  enum:["SL","SA","SAL","CB","SCOL","SCOM","SCOR"]}],  //añadido tipo de empresa, para que al elegir rol de company al regisrrarte, especifiques qué tipo de empresa vas a crear luego y se pasa el parámetro.
     img:{ type: String, requires: false, default:"https://res.cloudinary.com/dxnzcewsy/image/upload/v1693542647/proyecto%20final/userDefault.png"},
-    petitions:{ type: String, requires: false, default:"petition"}
+    petitions:{ type: String, requires: false, default:"petition"},
+    form:[{type:Schema.ObjectId, required: false, ref:"form"}]
 },{
     collection: "user"
 }
