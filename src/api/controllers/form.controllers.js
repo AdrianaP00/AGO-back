@@ -1,5 +1,5 @@
 const Form = require("../models/form.models");
-const User = require("../models/user.models")
+
 
 const getForm = async (req, res) => {
   try {
@@ -53,15 +53,6 @@ const postForm = async (req, res) => {
   }
 };
 
-/*const postForm= async (req, res) => {
-  try {
-    const form = new Form(req.body);
-    await form.save();
-    res.status(201).json(form);
-  } catch (error) {
-    res.status(500).json({ error: 'Error interno del servidor' });
-  }
-}*/
 
 
 
