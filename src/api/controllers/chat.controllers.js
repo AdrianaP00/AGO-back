@@ -2,7 +2,7 @@ const Chat = require("../models/chat.models");
 
 const getChats = async (req, res) => {
   try {
-    const chats = await Chat.find();
+    const chats = await Chat.find().populate("user");
     return res.status(200).json(chats);
   } catch (error) {
     return res.status(500).json(error);
@@ -12,7 +12,7 @@ const getChats = async (req, res) => {
 const getChat = async (req, res) => {
   try {
     const { id } = req.params;
-    const chat = await Chat.findById(id);
+    const chat = await Chat.findById(id).populate("user");
     return res.status(200).json(chat);
   } catch (error) {
     return res.status(500).json(error);
@@ -23,7 +23,7 @@ const postChat = async (req, res) => {
   const newChat = new Chat(req.body);
   const createChat = await newChat.save();
   return res.status(201).json(createChat);
-}
+};
 
 const putChat = async (req, res) => {
   try {
@@ -55,4 +55,10 @@ const deleteChat = async (req, res) => {
   }
 };
 
-module.exports = { getChats, getChat, postChat, putChat, deleteChat };
+module.exports = {
+  getChats,
+  getChat,
+  postChat,
+  putChat,
+  deleteChat,
+};

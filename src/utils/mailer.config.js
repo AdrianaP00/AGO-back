@@ -11,6 +11,7 @@ const transporter = nodemailer.createTransport({
   },
   tls: { rejectUnauthorized: false },
 });
+
 module.exports.sendRegistrationEmail = (user) => {
   transporter
     .sendMail({
