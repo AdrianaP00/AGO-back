@@ -3,7 +3,7 @@ const User = require("../models/user.models")
 
 const getForm = async (req, res) => {
   try {
-    const Forms = await Form.find().populate("id_worker").populate("id_user");
+    const Forms = await Form.find();
     return res.status(200).json(Forms);
   } catch (error) {
     return res.status(500).json(error);
@@ -13,7 +13,7 @@ const getForm = async (req, res) => {
 const getOneForm= async (req, res) => {
   try {
     const { id } = req.params;
-    const form = await Form.findById(id).populate("id_worker").populate("id_user");
+    const form = await Form.findById(id);
     return res.status(200).json(form);
   } catch (error) {
     return res.status(500).json(error);
@@ -22,28 +22,35 @@ const getOneForm= async (req, res) => {
 
 const postForm = async (req, res) => {
   try {
-    const { id, worker } = req.params
-    const postForm = new Form(req.body)
-    const post = await postForm.save()
-    postForm._id = id;
-    
-    const foundUserW = await User.findById(worker)
-    const foundUser = await User.findById(id)
- if(!foundUser){
-  return res.status(404).json({message:"error de user2222"})
- }
- if(!foundUserW){
-  return res.status(404).json({message:"error de gatooooooo"})
-  
- }
+    const postedForm = req.body;
+    const postForm = new Form(postedForm);
+    const post = await postForm.save();
 
- foundUser.id_user.push(post.id)
- foundUserW.id_worker.push(post.id)
-    return res.status(200).json(updateForm)
-} catch (error) {
-    return res.status(500).json(error)
-}
-}
+    const idUser = req.params.id;
+    const idWorker = req.params.worker;
+
+    const foundUser = await User.findById(idUser);
+    if (!foundUser) {
+      return res.status(404).json({ message: "Error de usuario" });
+    }
+    foundUser.petitions.push(post._id);
+    await foundUser.save();
+
+
+    const foundWorker = await User.findById(idWorker);
+    if (!foundWorker) {
+      return res.status(404).json({ message: "Error de usuario" });
+    }
+    foundWorker.petitions.push(post._id);
+    await foundWorker.save();
+
+
+    console.log(foundUser);
+    return res.status(200).json(post);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
 
 
 

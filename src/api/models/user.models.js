@@ -10,18 +10,17 @@ const userSchema = new Schema({
     password: { type: String, required: true, trim: true },
     phoneNumber: { type: String, required: false},
     address: { type: String, required: false},
-    specialization: [{type:Schema.ObjectId, required: false, ref: "job" }],//siendo usuario, puedes ofrecer hasta 3 servicios por si te quires promocionar
+    specialization: [{type:Schema.Types.ObjectId, required: false, ref: "job" }],//siendo usuario, puedes ofrecer hasta 3 servicios por si te quires promocionar
     yearsOfExperience: { type: Date, required: false},
-    comments: [{ type: Schema.ObjectId, required: false , ref: "comment" }],
-    contacts:[{type: Schema.ObjectId, required: false , ref: "user" }],
+    comments: [{ type: Schema.Types.ObjectId, required: false , ref: "comment" }],
+    contacts:[{type: Schema.Types.ObjectId, required: false , ref: "user" }],
     salary:{type:Number,required:false},
     availability:[{type:String,required:false}],
-    favoriteCompany:[{type:Schema.ObjectId, required: false, ref:"company"}],//para hacer lista de compañías o trabajadores favoritos
+    favoriteCompany:[{type: Schema.Types.ObjectId, required: false, ref:"company"}],//para hacer lista de companias o trabajadores favoritos
     role:{type:String,  enum:["ROLE_USER","ROLE_COMPANY","ROLE_ADMIN"]},
     companyTypes:[{type:String,  enum:["SL","SA","SAL","CB","SCOL","SCOM","SCOR"]}],  //añadido tipo de empresa, para que al elegir rol de company al regisrrarte, especifiques qué tipo de empresa vas a crear luego y se pasa el parámetro.
     img:{ type: String, requires: false, default:"https://res.cloudinary.com/dxnzcewsy/image/upload/v1693542647/proyecto%20final/userDefault.png"},
-    petitions:{ type: String, requires: false, default:"petition"},
-    form:[{type:Schema.ObjectId, required: false, ref:"form"}]
+    petitions: [{ type: Schema.Types.ObjectId, required: false, ref: "form" }],
 },{
     collection: "user"
 }

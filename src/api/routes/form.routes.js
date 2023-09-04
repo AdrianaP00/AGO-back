@@ -4,7 +4,7 @@ const { getForm, getOneForm, postForm} = require("../controllers/form.controller
 
 const formRouter = express.Router();
 
-formRouter.get("/",getForm);
+formRouter.get("/", getForm);
 formRouter.get("/:id",getOneForm)
 formRouter.post("/:id/:worker",postForm);
 
