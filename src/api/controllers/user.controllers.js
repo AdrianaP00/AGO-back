@@ -35,10 +35,10 @@ const putUser = async (req, res) => {
         const putUser = new users(req.body)
         putUser._id = id;
         console.log("comoprobaorbaoejbojalbnds",putUser.password)
-        if (!validatePassword(putUser.password)) {
-            return res.status(400).json({message:"Invalid password formating"})
-        }
-        putUser.password = bcrypt.hashSync(putUser.password, 10);
+        // if (!validatePassword(putUser.password)) {
+        //     return res.status(400).json({message:"Invalid password formating"})
+        // }
+        // putUser.password = bcrypt.hashSync(putUser.password, 10);
         const updateUser = await users.findByIdAndUpdate(id, putUser, { new: true })
         if (!updateUser) {
             return res.status(404).json({ message: "Oh no! we don't have this user" })
@@ -48,6 +48,7 @@ const putUser = async (req, res) => {
         return res.status(500).json(error)
     }
 }
+
 
 const register = async (req, res ) => {
     try {
@@ -78,8 +79,7 @@ const register = async (req, res ) => {
 
 const login = async (req, res) => {
     try {
-        console.log(req.body.email);
-        const userInfo = await users.findOne({email:req.body.email})
+        const userInfo = await users.findOne({email:req.body.email, confirmed: true})
         console.log(userInfo);
         if (!userInfo) {
             return res.status(404).json({message:"incorrect email address"})
@@ -108,7 +108,25 @@ const deleteUser = async (req, res) => {
         return res.status(500).json(error)
     }
 }
+const putConfirmUser = async (req, res) => {
+    try {
+        const { id } = req.params
+        const putUser = new users(req.body)
+        putUser._id = id;
+        console.log("comoprobaorbaoejbojalbnds",putUser.password)
+        const updateUser = await users.findByIdAndUpdate(id, putUser, { new: true })
+        return res.status(200).json(updateUser)
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+}
+const confirmUser = async (req, res, next) => {
+    users.findByIdAndUpdate(req.params.id, {confirmed: true})
+    .then(()=>{
+        console.log("bulala que pasa aqui")
+        res.redirect("/home")
+    }).catch((error) => console.log("errorazo",error))
+}
 
 
-
-module.exports={register, login,getUsers,getOneUser,putUser,deleteUser }
+module.exports={register, login,getUsers,getOneUser,putUser,deleteUser, confirmUser, putConfirmUser}
