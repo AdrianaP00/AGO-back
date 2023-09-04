@@ -36,14 +36,12 @@ const postForm = async (req, res) => {
     foundUser.petitions.push(post._id);
     await foundUser.save();
 
-
     const foundWorker = await User.findById(idWorker);
     if (!foundWorker) {
       return res.status(404).json({ message: "Error de usuario" });
     }
     foundWorker.petitions.push(post._id);
     await foundWorker.save();
-
 
     console.log(foundUser);
     return res.status(200).json(post);
