@@ -1,5 +1,7 @@
 const express = require("express");
 const userRouter = express.Router();
+const upload = require("../../middlewares/upload.file");
+
 const {
   register,
   login,
@@ -191,7 +193,7 @@ userRouter.get("/:id", getUser);
  *       500:
  *         description: Internal server error
  */
-userRouter.put("/:id", putUser);
+userRouter.put("/:id", upload.single("image"), putUser);
 
 userRouter.put("/:id/confirm", putConfirmUser);
 
