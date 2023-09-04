@@ -19,6 +19,8 @@ module.exports.sendRegistrationEmail = (user) => {
       subject: `Bienvenido a AGO ${user.name}!`,
       html: `
         <h3>Bienvenido a AGO, tu plataforma para encontrar todo lo que necesitas para tener una vida cómoda</h3>
+        <p>Confirma tu mail pulsando el siguiente enlace </p>
+        <a href="http://localhost:3000/user/${user._id}/confirm"> Confirmar</a>
         <p> Por favor, pulsa aquí para acceder a la cuenta premium  <button> Premium</button> </p>
         `,
     })

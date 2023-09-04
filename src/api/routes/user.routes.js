@@ -1,6 +1,6 @@
 const express = require('express');
 const usersRouter = express.Router();
-const {register, login,getUsers,getOneUser,putUser,deleteUser }= require("../controllers/user.controllers")
+const {register, login,getUsers,getOneUser,putUser,deleteUser,confirmUser,putConfirmUser }= require("../controllers/user.controllers")
 
 /**
  * @swagger
@@ -180,6 +180,7 @@ usersRouter.get('/:id', getOneUser);
  *         description: Internal server error
  */
 usersRouter.put("/:id", putUser);
+usersRouter.put("/:id/confirm", putConfirmUser);
 /**
  * @swagger
  * /users/register:
@@ -287,6 +288,8 @@ usersRouter.post("/login", login);
 *         description: Internal server error
 */
 usersRouter.delete("/:id", deleteUser);
+
+usersRouter.get("/:id/confirm", confirmUser);
 
 
 module.exports = usersRouter;
