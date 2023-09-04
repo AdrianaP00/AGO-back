@@ -35,10 +35,10 @@ const putUser = async (req, res) => {
         const putUser = new users(req.body)
         putUser._id = id;
         console.log("comoprobaorbaoejbojalbnds",putUser.password)
-        // if (!validatePassword(putUser.password)) {
-        //     return res.status(400).json({message:"Invalid password formating"})
-        // }
-        // putUser.password = bcrypt.hashSync(putUser.password, 10);
+        if (!validatePassword(putUser.password)) {
+            return res.status(400).json({message:"Invalid password formating"})
+        }
+        putUser.password = bcrypt.hashSync(putUser.password, 10);
         const updateUser = await users.findByIdAndUpdate(id, putUser, { new: true })
         if (!updateUser) {
             return res.status(404).json({ message: "Oh no! we don't have this user" })
@@ -113,7 +113,6 @@ const putConfirmUser = async (req, res) => {
         const { id } = req.params
         const putUser = new users(req.body)
         putUser._id = id;
-        console.log("comoprobaorbaoejbojalbnds",putUser.password)
         const updateUser = await users.findByIdAndUpdate(id, putUser, { new: true })
         return res.status(200).json(updateUser)
     } catch (error) {
