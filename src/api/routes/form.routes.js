@@ -1,12 +1,14 @@
 const express = require("express");
-const { getForm, getOneForm, postForm} = require("../controllers/form.controllers");
-
+const {
+  getForms,
+  getForm,
+  postForm,
+} = require("../controllers/form.controllers");
 
 const formRouter = express.Router();
 
-formRouter.get("/", getForm);
-formRouter.get("/:id",getOneForm)
-formRouter.post("/:id/:worker",postForm);
+formRouter.get("/", getForms);
+formRouter.get("/:id", getForm);
+formRouter.post("/:id/:worker", postForm);
 
-
-module.exports= formRouter;
+module.exports = formRouter;

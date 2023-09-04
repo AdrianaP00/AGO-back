@@ -12,7 +12,12 @@ const companyArray = [
     logo: "logo1.jpg",
     numberEmployes: 50,
     id_user: "64f1f76422539ea74d29fa2d",
-    id_avertisement: ["64f1f93a37102fbaaf669b75", "64f1f93a37102fbaaf669b78", "64f1f93a37102fbaaf669b79","64f1f93a37102fbaaf669b79"],
+    id_avertisement: [
+      "64f1f93a37102fbaaf669b75",
+      "64f1f93a37102fbaaf669b78",
+      "64f1f93a37102fbaaf669b79",
+      "64f1f93a37102fbaaf669b79",
+    ],
   },
   {
     name: "Global Services Corp",
@@ -56,22 +61,23 @@ const companyArray = [
   },
 ];
 
-const DB_URL= process.env.DB_URL;
+const DB_URL = process.env.DB_URL;
 
-mongoose.connect(DB_URL)
-.then(async()=> {
+mongoose
+  .connect(DB_URL)
+  .then(async () => {
     const allCompany = await Company.find();
     if (allCompany.length > 0) {
-        await Company.collection.drop();
-        console.log("collection delete");
+      await Company.collection.drop();
+      console.log("collection delete");
     }
-})
-.catch((error)=> console.log("Retry",error))
+  })
+  .catch((error) => console.log("Retry", error))
 
-.then(async ()=> {
+  .then(async () => {
     const CompanyMap = companyArray.map((company) => new Company(company));
     await Company.insertMany(CompanyMap);
     console.log("ok");
-})
-.catch((error) => console.log("Error", error))
-.finally(()=> mongoose.disconnect())
+  })
+  .catch((error) => console.log("Error", error))
+  .finally(() => mongoose.disconnect());

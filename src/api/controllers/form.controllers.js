@@ -1,7 +1,6 @@
 const Form = require("../models/form.models");
 
-
-const getForm = async (req, res) => {
+const getForms = async (req, res) => {
   try {
     const Forms = await Form.find();
     return res.status(200).json(Forms);
@@ -10,7 +9,7 @@ const getForm = async (req, res) => {
   }
 };
 
-const getOneForm= async (req, res) => {
+const getForm = async (req, res) => {
   try {
     const { id } = req.params;
     const form = await Form.findById(id);
@@ -19,7 +18,6 @@ const getOneForm= async (req, res) => {
     return res.status(500).json(error);
   }
 };
-
 
 const postForm = async (req, res) => {
   try {
@@ -51,7 +49,8 @@ const postForm = async (req, res) => {
   }
 };
 
-
-
-
-module.exports = { getForm, getOneForm, postForm};
+module.exports = {
+  getForms,
+  getForm,
+  postForm,
+};

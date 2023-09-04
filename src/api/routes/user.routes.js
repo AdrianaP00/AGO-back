@@ -1,6 +1,15 @@
-const express = require('express');
-const usersRouter = express.Router();
-const {register, login,getUsers,getOneUser,putUser,deleteUser,confirmUser,putConfirmUser }= require("../controllers/user.controllers")
+const express = require("express");
+const userRouter = express.Router();
+const {
+  register,
+  login,
+  getUsers,
+  getUser,
+  putUser,
+  deleteUser,
+  confirmUser,
+  putConfirmUser,
+} = require("../controllers/user.controllers");
 
 /**
  * @swagger
@@ -29,22 +38,22 @@ const {register, login,getUsers,getOneUser,putUser,deleteUser,confirmUser,putCon
  *         phoneNumbe:
  *           type: number
  *           description: Users phone number
- *         address: 
+ *         address:
  *            type: string
  *            description: Users address
  *         spacialization:
  *            type: string
  *            description: Users spacialization
- *         yearsOfExperiencetype: 
+ *         yearsOfExperiencetype:
  *            type: number
  *            description: Users years of experiment
- * *       comments: 
+ * *       comments:
  *            type: array
  *            items:
  *            type: string
  *           uniqueItems: true
  *           description: Users comments
- *         jobs: 
+ *         jobs:
  *            type: array
  *            items:
  *            type: string
@@ -90,7 +99,7 @@ const {register, login,getUsers,getOneUser,putUser,deleteUser,confirmUser,putCon
  *         - user
  *         - token
  *       example:
- *         user: 
+ *         user:
  *         name:Adry
  *          age: 23
  *          email: adriana00@gmail.com
@@ -98,6 +107,7 @@ const {register, login,getUsers,getOneUser,putUser,deleteUser,confirmUser,putCon
  *          role: user
  *          token: Adry123
  */
+
 /**
  * @swagger
  * /users:
@@ -118,7 +128,8 @@ const {register, login,getUsers,getOneUser,putUser,deleteUser,confirmUser,putCon
  *       500:
  *         description: Internal server error
  */
-usersRouter.get('/', getUsers);
+userRouter.get("/", getUsers);
+
 /**
  * @swagger
  * /users/{id}:
@@ -145,12 +156,13 @@ usersRouter.get('/', getUsers);
  *       500:
  *         description: Internal server error
  */
-usersRouter.get('/:id', getOneUser);
+userRouter.get("/:id", getUser);
+
 /**
  * @swagger
  * /users/{id}:
  *   put:
- *     summary: Modify a specific User 
+ *     summary: Modify a specific User
  *     tags: [users]
  *     security:
  *       - bearerAuth: []
@@ -179,8 +191,10 @@ usersRouter.get('/:id', getOneUser);
  *       500:
  *         description: Internal server error
  */
-usersRouter.put("/:id", putUser);
-usersRouter.put("/:id/confirm", putConfirmUser);
+userRouter.put("/:id", putUser);
+
+userRouter.put("/:id/confirm", putConfirmUser);
+
 /**
  * @swagger
  * /users/register:
@@ -216,7 +230,7 @@ usersRouter.put("/:id/confirm", putConfirmUser);
  *                 email: marco@disenador.com
  *                 password: Marco19!
  *                 role: user
- * 
+ *
  *     responses:
  *       200:
  *         description: Created Users
@@ -228,7 +242,7 @@ usersRouter.put("/:id/confirm", putConfirmUser);
  *       500:
  *         description: Internal server error
  */
-usersRouter.post("/register", register);
+userRouter.post("/register", register);
 
 /**
  * @swagger
@@ -263,33 +277,33 @@ usersRouter.post("/register", register);
  *       500:
  *         description: Internal server error
  */
-usersRouter.post("/login", login);
+userRouter.post("/login", login);
+
 /**
  * @swagger
-* /users/{id}:
-*   delete:
-*     summary: Delete a specific Users by ID
-*     tags: [users]
-*     security:
-*       - bearerAuth: []
-*     parameters:
-*       - in: path
-*         name: id
-*         required: true
-*         schema:
-*           type: string
-*         description: Users ID
-*     responses:
-*       200:
-*         description: Users deleted
-*       404:
-*         description: Id not found
-*       500:
-*         description: Internal server error
-*/
-usersRouter.delete("/:id", deleteUser);
+ * /users/{id}:
+ *   delete:
+ *     summary: Delete a specific Users by ID
+ *     tags: [users]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Users ID
+ *     responses:
+ *       200:
+ *         description: Users deleted
+ *       404:
+ *         description: Id not found
+ *       500:
+ *         description: Internal server error
+ */
+userRouter.delete("/:id", deleteUser);
 
-usersRouter.get("/:id/confirm", confirmUser);
+userRouter.get("/:id/confirm", confirmUser);
 
-
-module.exports = usersRouter;
+module.exports = userRouter;

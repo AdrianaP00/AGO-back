@@ -2,7 +2,9 @@ const Company = require("../models/company.models");
 
 const getCompanys = async (req, res) => {
   try {
-    const companys = await Company.find().populate("id_user").populate("id_advertisement");
+    const companys = await Company.find()
+      .populate("id_user")
+      .populate("id_advertisement");
     return res.status(200).json(companys);
   } catch (error) {
     return res.status(500).json(error);
@@ -12,7 +14,9 @@ const getCompanys = async (req, res) => {
 const getCompany = async (req, res) => {
   try {
     const { id } = req.params;
-    const company = await Company.findById(id).populate("id_user").populate("id_advertisement");
+    const company = await Company.findById(id)
+      .populate("id_user")
+      .populate("id_advertisement");
     return res.status(200).json(company);
   } catch (error) {
     return res.status(500).json(error);
@@ -21,18 +25,20 @@ const getCompany = async (req, res) => {
 
 const postCompany = async (req, res) => {
   try {
-    const { id } = req.params
-    const postCompany = new Company(req.body)
+    const { id } = req.params;
+    const postCompany = new Company(req.body);
     postCompany._id = id;
-    const updateCompany= await Company.findByIdAndUpdate(id, postCompany, { new: true })
+    const updateCompany = await Company.findByIdAndUpdate(id, postCompany, {
+      new: true,
+    });
     if (!updateCompany) {
-        return res.status(404).json({ message: "Oh no! retry" })
+      return res.status(404).json({ message: "Oh no! retry" });
     }
-    return res.status(200).json(updateCompany)
-} catch (error) {
-    return res.status(500).json(error)
-}
-}
+    return res.status(200).json(updateCompany);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
 
 const putCompany = async (req, res) => {
   try {
@@ -64,4 +70,10 @@ const deleteCompany = async (req, res) => {
   }
 };
 
-module.exports = { getCompanys, getCompany, postCompany, putCompany, deleteCompany };
+module.exports = {
+  getCompanys,
+  getCompany,
+  postCompany,
+  putCompany,
+  deleteCompany,
+};

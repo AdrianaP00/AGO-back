@@ -10,9 +10,11 @@ const companySchema = new Schema(
     country: { type: String },
     logo: { type: String },
     numberEmployes: { type: Number },
-    specialization: [{ type: String, required: false}],
-    id_user: { type: Schema.ObjectId, required: true, ref:"user" },
-    id_advertisement: [{ type: Schema.ObjectId, required: true, ref:"advertisement" },]
+    specialization: [{ type: String, required: false }],
+    id_user: { type: Schema.ObjectId, required: true, ref: "user" },
+    id_advertisement: [
+      { type: Schema.ObjectId, required: true, ref: "advertisement" },
+    ],
   },
   {
     timestamps: true,
