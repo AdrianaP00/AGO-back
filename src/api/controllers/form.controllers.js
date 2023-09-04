@@ -20,6 +20,7 @@ const getOneForm= async (req, res) => {
   }
 };
 
+
 const postForm = async (req, res) => {
   try {
     const postedForm = req.body;
@@ -51,6 +52,16 @@ const postForm = async (req, res) => {
     return res.status(500).json(error);
   }
 };
+
+/*const postForm= async (req, res) => {
+  try {
+    const form = new Form(req.body);
+    await form.save();
+    res.status(201).json(form);
+  } catch (error) {
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+}*/
 
 
 
