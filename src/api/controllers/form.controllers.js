@@ -20,29 +20,15 @@ const getOneForm= async (req, res) => {
   }
 };
 
-const postForm = async (req, res) => {
-  try {
-    const { id, worker } = req.params
-    const postForm = new Form(req.body)
-    const post = await postForm.save()
-    postForm._id = id;
-    
-    const foundUserW = await User.findById(worker)
-    const foundUser = await User.findById(id)
- if(!foundUser){
-  return res.status(404).json({message:"error de user2222"})
- }
- if(!foundUserW){
-  return res.status(404).json({message:"error de gatooooooo"})
-  
- }
 
- foundUser.id_user.push(post.id)
- foundUserW.id_worker.push(post.id)
-    return res.status(200).json(updateForm)
-} catch (error) {
-    return res.status(500).json(error)
-}
+const postForm= async (req, res) => {
+  try {
+    const form = new Form(req.body);
+    await form.save();
+    res.status(201).json(form);
+  } catch (error) {
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
 }
 
 
