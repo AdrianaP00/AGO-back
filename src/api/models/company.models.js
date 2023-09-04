@@ -13,7 +13,7 @@ const companySchema = new Schema(
     specialization: [{ type: String, required: false }],
     id_user: { type: Schema.ObjectId, required: true, ref: "user" },
     id_advertisement: [
-      { type: Schema.ObjectId, required: true, ref: "advertisement" },
+    { type: Schema.ObjectId, required: true, ref: "advertisement" },
     ],
   },
   {

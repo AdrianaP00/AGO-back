@@ -91,11 +91,7 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const userInfo = await User.findOne({
-      email: req.body.email,
-      confirmed: true,
-    });
-    console.log(userInfo);
+    const userInfo = await User.findOne({ email: req.body.email, confirmed: true,});
     if (!userInfo) {
       return res.status(404).json({ message: "incorrect email address" });
     }
@@ -125,9 +121,8 @@ const deleteUser = async (req, res) => {
 const putConfirmUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const putUser = new User(req.body);
-    putUser._id = id;
-    const updateUser = await users.findByIdAndUpdate(id, putUser, {
+    const putUser = req.body; 
+    const updateUser = await User.findByIdAndUpdate(id, putUser, {
       new: true,
     });
     return res.status(200).json(updateUser);
@@ -136,12 +131,13 @@ const putConfirmUser = async (req, res) => {
   }
 };
 
+
 const confirmUser = async (req, res, next) => {
-  user
+  User
     .findByIdAndUpdate(req.params.id, { confirmed: true })
     .then(() => {
       console.log("bulala que pasa aqui");
-      res.redirect("/home");
+      res.redirect("/");
     })
     .catch((error) => console.log("errorazo", error));
 };
