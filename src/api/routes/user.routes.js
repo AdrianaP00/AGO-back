@@ -172,7 +172,7 @@ userRouter.get("/:id", getUser);
  *       500:
  *         description: Internal server error
  */
-userRouter.put("/:id", upload.single("image"), putUser);
+userRouter.put("/:id", upload.single("img"), putUser);
 
 /**
  * @swagger
