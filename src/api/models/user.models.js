@@ -4,14 +4,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    name: {
-      type: String,
-      requires: true,
-      trim: true,
-      minLength: [3, "El nombre necesita al menos 3 caracteres"],
-      maxLength: [
-        30,
-        "Nombre demasiado largo, debe tener menos de 30 caracteres",
+    name: { type: String, requires: true, trim: true, minLength: [3, "El nombre necesita al menos 3 caracteres"], maxLength: [   30,   "Nombre demasiado largo, debe tener menos de 30 caracteres",
       ],
     },
     age: { type: Number, requires: false },
