@@ -32,7 +32,7 @@ const postCompany = async (req, res) => {
       new: true,
     });
     if (!updateCompany) {
-      return res.status(404).json({ message: "Oh no! retry" });
+      return res.status(404).json({ message: "Company not found" });
     }
     return res.status(200).json(updateCompany);
   } catch (error) {
@@ -49,7 +49,7 @@ const putCompany = async (req, res) => {
       new: true,
     });
     if (!updatedCompany) {
-      return res.status(404).json({ message: "ops! we don't have this id" });
+      return res.status(404).json({ message: "Company not found" });
     }
     return res.status(200).json(updatedCompany);
   } catch (error) {

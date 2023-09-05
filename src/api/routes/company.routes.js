@@ -44,7 +44,7 @@ const companyRoutes = express.Router();
  *            type: number
  *            description: Number of employes
  *         specialization:
- *             type: array
+ *            type: array
  *            items:
  *              type: string
  *            uniqueItems: true
@@ -73,22 +73,151 @@ const companyRoutes = express.Router();
  *         - id_user
  *         - id_advertisement
  *       example:
- *             name: UpgradeHub
- *             business_name: UpgradeHub SRL
- *             vat: yu23fgyu123f4345
- *             direcction:  calle oso 13 Madrid 
- *             country: Spain
- *             logo: img_1
- *             numberEmployes: 50-200
- *             specialization: []
- *             id_user: tdrfghsrthur6hu56
- *             id_advertisement: []
+ *         name: UpgradeHub
+ *         business_name: UpgradeHub SRL
+ *         vat: yu23fgyu123f4345
+ *         direcction:  calle oso 13 Madrid 
+ *         country: Spain
+ *         logo: img_1
+ *         numberEmployes: 50-200
+ *         specialization: []
+ *         id_user: tdrfghsrthur6hu56
+ *         id_advertisement: []
  */
 
+/**
+ * @swagger
+ * /company:
+ *   get:
+ *     summary: Get all company
+ *     tags: [Company]
+ *     responses:
+ *       200:
+ *         description: All Company
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Company'
+ *       500:
+ *         description: Internal server error
+ */
 companyRoutes.get("/", getCompanys);
+/**
+ * @swagger
+ * /company/{id}:
+ *   get:
+ *     summary: Obtain information about a specific company by ID
+ *     tags: [Company]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Company ID
+ *     responses:
+ *       200:
+ *         description: Obtain information about a specific Company by ID
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               $ref: '#/components/schemas/Company'
+ *       500:
+ *         description: Internal server error
+ */
 companyRoutes.get("/:id", [isAuth], getCompany);
+
+/**
+ * @swagger
+ * /company/:
+ *   post:
+ *     summary: Create a new job
+ *     tags: [Company]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             $ref: '#/components/schemas/Company'
+ *     responses:
+ *       200:
+ *         description: Created Company
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               $ref: '#/components/schemas/Company'
+ *       500:
+ *         description: Internal server error
+ */
 companyRoutes.post("/", [isCompany], postCompany);
+
+/**
+ * @swagger
+ * /company/{id}:
+ *   put:
+ *     summary: Modify a specific Company by ID
+ *     tags: [Company]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             $ref: '#/components/schemas/Company'
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Company ID
+ *     responses:
+ *       200:
+ *         description: Modified Company
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               $ref: '#/components/schemas/Company'
+ *       404:
+ *         description: Company not found
+ *       500:
+ *         description: Internal server error
+ */
 companyRoutes.put("/:id", [isCompany], putCompany);
+
+/**
+ * @swagger
+ * /company/{id}:
+ *   delete:
+ *     summary: Delete a specific Company by ID
+ *     tags: [Company]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Company ID
+ *     responses:
+ *       200:
+ *         description: Company deleted
+ *       404:
+ *         description: Company not found
+ *       500:
+ *         description: Internal server error
+ */
 companyRoutes.delete("/:id", [isCompany], deleteCompany);
 
 module.exports = companyRoutes;

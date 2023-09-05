@@ -247,7 +247,7 @@ userRouter.get("/:id/confirm", confirmUser);
  *             type: object
  *             $ref: '#/components/schemas/Users'
  *           examples:
- *             Autorized:
+ *             Company:
  *               value:
  *                 name: Construcciones Martínez
  *                 age: 42
@@ -261,7 +261,7 @@ userRouter.get("/:id/confirm", confirmUser);
  *                 img: https://example.com/img1.jpg
  *                 role: ROLE_COMPANY
  *                 companyTypes: ["SL"]
- *             Coach:
+ *             User:
  *               value:
  *                 name: Andrés Pérez
  *                 age: 28
