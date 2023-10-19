@@ -45,8 +45,6 @@ const putUser = async (req, res) => {
     const { id } = req.params;
     const putUser = new User(req.body);
     putUser._id = id;
-    // console.log("pa oliver", req.file);
-    // putUser.img = req.file.path;
     if (!validatePassword(putUser.password)) {
       return res.status(400).json({ message: "Invalid password formating" });
     }
